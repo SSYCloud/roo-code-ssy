@@ -478,7 +478,7 @@
 		"esbuild": "^0.24.0",
 		"eslint": "^8.57.0",
 		"execa": "^9.5.2",
-		"glob": "^11.0.1",
+		"glob": "^11.0.2",
 		"husky": "^9.1.7",
 		"jest": "^29.7.0",
 		"jest-simple-dot-reporter": "^1.0.5",
