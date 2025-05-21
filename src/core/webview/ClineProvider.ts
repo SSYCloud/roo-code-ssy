@@ -1068,7 +1068,7 @@ export class ClineProvider extends EventEmitter<ClineProviderEvents> implements 
 		try {
 			const response = await axios.post("https://api.shengsuanyun.com/auth/keys", {
 				code,
-				callback_url: "vscode://shengsuan-cloud.roo-vibecoding/shengsuanyun",
+				callback_url: "vscode://shengsuan-cloud.roo-vibecoding/ssy",
 			})
 			if (response.data && response.data.data && response.data.data.api_key) {
 				apiKey = response.data.data.api_key

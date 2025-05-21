@@ -32,6 +32,7 @@ export const handleUri = async (uri: vscode.Uri) => {
 			}
 			break
 		}
+		case "/ssy":
 		case "/shengsuanyun": {
 			const code = query.get("code")
 			if (code) {
