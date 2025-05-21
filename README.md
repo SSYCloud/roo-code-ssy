@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f5b5f88e-d628-4c22-80bf-300639c50ab8)<div align="center">
+<div align="center">
 <sub>
 
 [English](../../README.md) • [简体中文](locales/zh-CN/README.md) • [繁體中文](locales/zh-TW/README.md)
