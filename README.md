@@ -1,4 +1,4 @@
-<div align="center">
+![image](https://github.com/user-attachments/assets/f5b5f88e-d628-4c22-80bf-300639c50ab8)<div align="center">
 <sub>
 
 [English](../../README.md) • [简体中文](locales/zh-CN/README.md) • [繁體中文](locales/zh-TW/README.md)
@@ -23,7 +23,7 @@
 
 <div align="center">
 <h1>胜算云Router的Gemini模型半价！</h1>
-Google: Gemini 2.5 Pro Preview 05-06 与Gemini 2.5 Flash Preview 05-20 半价！<br>
+Google: Gemini 2.5 Pro Preview 05-06 与Gemini 2.5 Flash Preview 05-20 半价！详情点击链接：<a href="https://router.shengsuanyun.com/" target="_blank">胜算云Router</a><br>
 <a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline" target="_blank"><img src="https://img.shields.io/badge/%E5%9C%A8%20VS%20Marketplace%20%E4%B8%8A%E4%B8%8B%E8%BD%BD-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="在 VS Marketplace 上下载"></a>
 <a href="https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop" target="_blank"><img src="https://img.shields.io/badge/%E5%8A%9F%E8%83%BD%E8%AF%B7%E6%B1%82-yellow?style=for-the-badge" alt="功能请求"></a>
 <a href="https://marketplace.visualstudio.com/items?itemName=RooVeterinaryInc.roo-cline&ssr=false#review-details" target="_blank"><img src="https://img.shields.io/badge/%E8%AF%84%E5%88%86%20%26%20%E8%AF%84%E8%AE%BA-green?style=for-the-badge" alt="评分 & 评论"></a>
