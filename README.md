@@ -116,6 +116,20 @@ MCP 通过允许您添加无限自定义工具来扩展 Roo Code-中文版胜算
 - **Discord：** [加入我们的 Discord 服务器](https://discord.gg/roocode)获取实时帮助和讨论
 - **Reddit：** [访问我们的 subreddit](https://www.reddit.com/r/RooCode)分享经验和技巧
 - **GitHub：** 报告[问题](https://github.com/RooVetGit/Roo-Code/issues)或请求[功能](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop)
+<br>
+Cline-中文版胜算云讨论群<br>
+  <img src="https://github.com/user-attachments/assets/1c08215e-9f99-4a13-98b9-85807bda3af9" alt="微信群二维码" width="250" />
+
+
+Discord 频道：[SSYRouter API](https://discord.gg/frBHkRKB4x) <br>
+
+
+APIRouter进群交流<br>（如果无法加群，请加企业微信客服）<br>
+  <img src="https://github.com/user-attachments/assets/41e6dc76-07c9-4dbf-ac35-d2494ebc9a41" alt="APIRouter企业微信群" width="250" /> <br>
+
+
+企业客服咨询<br>
+  <img src="https://github.com/user-attachments/assets/c180b033-d62c-4dc0-9c2a-a3ad8c70e5a4" alt="企业微信客服" width="250" />
 
 ---
 
