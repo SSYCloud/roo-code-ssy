@@ -19,7 +19,7 @@ export async function getShengSuanYunModels(): Promise<Record<string, ModelInfo>
 				inputPrice: parseApiPrice(rawModel.pricing.prompt),
 				outputPrice: parseApiPrice(rawModel.pricing.completion),
 				description: rawModel.description,
-				cacheWritesPrice: parseApiPrice(rawModel.pricing.cache),
+				cacheWritesPrice: 0,
 				cacheReadsPrice: parseApiPrice(rawModel.pricing.cache),
 			}
 			models[rawModel.api_name] = modelInfo

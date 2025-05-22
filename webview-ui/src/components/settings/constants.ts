@@ -31,6 +31,7 @@ export const MODELS_BY_PROVIDER: Partial<Record<ProviderName, Record<string, Mod
 }
 
 export const PROVIDERS = [
+	{ value: "shengsuanyun", label: "胜算云" },
 	{ value: "openrouter", label: "OpenRouter" },
 	{ value: "anthropic", label: "Anthropic" },
 	{ value: "gemini", label: "Google Gemini" },
@@ -48,11 +49,10 @@ export const PROVIDERS = [
 	{ value: "requesty", label: "Requesty" },
 	{ value: "human-relay", label: "Human Relay" },
 	{ value: "xai", label: "xAI" },
-	{ value: "shengsuanyun", label: "Sheng Suan Yun" },
 	{ value: "groq", label: "Groq" },
 	{ value: "chutes", label: "Chutes AI" },
 	{ value: "litellm", label: "LiteLLM" },
-].sort((a, b) => a.label.localeCompare(b.label))
+]
 
 export const VERTEX_REGIONS = [
 	{ value: "us-east5", label: "us-east5" },
