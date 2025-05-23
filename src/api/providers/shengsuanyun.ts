@@ -83,11 +83,12 @@ export class ShengSuanYunHandler extends BaseProvider implements SingleCompletio
 
 		// https://openrouter.ai/docs/features/prompt-caching
 		if (isCacheAvailable) {
-			modelId.startsWith("google")
-				? addGeminiCacheBreakpoints(systemPrompt, openAiMessages)
-				: addAnthropicCacheBreakpoints(systemPrompt, openAiMessages)
+			if (modelId.startsWith("google")) {
+				addGeminiCacheBreakpoints(systemPrompt, openAiMessages)
+			} else {
+				addAnthropicCacheBreakpoints(systemPrompt, openAiMessages)
+			}
 		}
-
 		// Similar to OpenRouter's params
 		const completionParams: ShengSuanYunChatCompletionParams = {
 			model: modelId,

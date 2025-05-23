@@ -1,10 +1,11 @@
-import { reactConfig } from "@roo-vibecoding/config-eslint/react"
+import { reactConfig } from "@roo-code/config-eslint/react"
 
 /** @type {import("eslint").Linter.Config} */
 export default [
 	...reactConfig,
 	{
 		rules: {
+			'@typescript-eslint/no-unused-expressions': 'off',
 			"@typescript-eslint/no-unused-vars": "off",
 			"@typescript-eslint/no-explicit-any": "off",
 			"react/prop-types": "off",
