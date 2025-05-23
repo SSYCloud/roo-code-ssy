@@ -1,5 +1,27 @@
 # Roo Code Chinese SSY Changelog
 
+## [3.18.0] - 2025-05-21
+
+- Add support for Gemini 2.5 Flash preview models (thanks @shariqriazz and @daniel-lxs!)
+- Add button to task header to intelligently condense content with visual feedback
+- Add YAML support for mode definitions (thanks @R-omk!)
+- Add allowedMaxRequests feature to cap consecutive auto-approved requests (inspired by Cline, thanks @hassoncs!)
+- Add Qwen3 model series to the Chutes provider (thanks @zeozeozeo!)
+- Fix more causes of grey screen issues (thanks @xyOz-dev!)
+- Add LM Studio reasoning support (thanks @avtc!)
+- Add refresh models button for Unbound provider (thanks @pugazhendhi-m!)
+- Add template variables for version numbers in announcement strings (thanks @ChuKhaLi!)
+- Make prompt input textareas resizable again
+- Fix diffview scroll display (thanks @qdaxb!)
+- Fix LM Studio and Ollama usage tracking (thanks @xyOz-dev!)
+- Fix links to filename:0 (thanks @RSO!)
+- Fix missing or inconsistent syntax highlighting across UI components (thanks @KJ7LNW!)
+- Fix packaging to include correct tiktoken.wasm (thanks @vagadiya!)
+- Fix import settings bugs and position error messages correctly (thanks @ChuKhaLi!)
+- Move audio playing to the webview to ensure cross-platform support (thanks @SmartManoj and @samhvw8!)
+- Simplify loop syntax in multiple components (thanks @noritaka1166!)
+- Auto reload extension core changes in dev mode (thanks @hassoncs!)
+
 ## [3.17.2] - 2025-05-15
 
 - Revert "Switch to the new Roo message parser" (appears to cause a tool parsing bug)
@@ -24,7 +46,7 @@
 - Improve command execution UI
 - Add more in-app links to relevant documentation
 - Update the new task tool description and the ask mode custom instructions in the system prompt
-- Add IPC types to roo-code.d.ts
+- Add IPC types to roo-vibecoding.d.ts
 - Add build VSIX workflow to pull requests (thanks @SmartManoj!)
 - Improve apply_diff tool to intelligently deduce line numbers (thanks @samhvw8!)
 - Fix command validation for shell array indexing (thanks @KJ7LNW!)
@@ -665,7 +687,7 @@
 
 ## [3.7.5] - 2025-02-26
 
-- Fix context window truncation math (see [#1173](https://github.com/RooVetGit/Roo-Code/issues/1173))
+- Fix context window truncation math (see [#1173](https://github.com/RooCodeInc/Roo-Code/issues/1173))
 - Fix various issues with the model picker (thanks @System233!)
 - Fix model input / output cost parsing (thanks @System233!)
 - Add drag-and-drop for files
@@ -1094,7 +1116,7 @@ Join us at https://www.reddit.com/r/RooCode to share your custom modes and be pa
 
 ## [2.2.16]
 
-- Incorporate Premshay's [PR](https://github.com/RooVetGit/Roo-Cline/pull/60) to add support for Amazon Nova and Meta Llama Models via Bedrock (3, 3.1, 3.2) and unified Bedrock calls using BedrockClient and Bedrock Runtime API
+- Incorporate Premshay's [PR](https://github.com/RooCodeInc/Roo-Cline/pull/60) to add support for Amazon Nova and Meta Llama Models via Bedrock (3, 3.1, 3.2) and unified Bedrock calls using BedrockClient and Bedrock Runtime API
 
 ## [2.2.14 - 2.2.15]
 
@@ -1166,7 +1188,7 @@ Join us at https://www.reddit.com/r/RooCode to share your custom modes and be pa
 
 ## [2.1.15]
 
-- Incorporate dbasclpy's [PR](https://github.com/RooVetGit/Roo-Cline/pull/54) to add support for gemini-exp-1206
+- Incorporate dbasclpy's [PR](https://github.com/RooCodeInc/Roo-Cline/pull/54) to add support for gemini-exp-1206
 - Make it clear that diff editing is very experimental
 
 ## [2.1.14]
@@ -1176,7 +1198,7 @@ Join us at https://www.reddit.com/r/RooCode to share your custom modes and be pa
 
 ## [2.1.13]
 
-- Fix https://github.com/RooVetGit/Roo-Cline/issues/50 where sound effects were not respecting settings
+- Fix https://github.com/RooCodeInc/Roo-Cline/issues/50 where sound effects were not respecting settings
 
 ## [2.1.12]
 
@@ -1184,7 +1206,7 @@ Join us at https://www.reddit.com/r/RooCode to share your custom modes and be pa
 
 ## [2.1.11]
 
-- Incorporate lloydchang's [PR](https://github.com/RooVetGit/Roo-Cline/pull/42) to add support for OpenRouter compression
+- Incorporate lloydchang's [PR](https://github.com/RooCodeInc/Roo-Cline/pull/42) to add support for OpenRouter compression
 
 ## [2.1.10]
 

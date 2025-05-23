@@ -1,5 +1,7 @@
+import { Package } from "@roo/schemas"
+
 export function getCallbackUrl(provider: string, uriScheme?: string) {
-	return encodeURIComponent(`${uriScheme || "vscode"}://shengsuan-cloud.roo-vibecoding/${provider}`)
+	return encodeURIComponent(`${uriScheme || "vscode"}://${Package.publisher}.${Package.name}/${provider}`)
 }
 
 export function getGlamaAuthUrl(uriScheme?: string) {
@@ -15,5 +17,5 @@ export function getRequestyAuthUrl(uriScheme?: string) {
 }
 
 export function getShengSuanYunAuthUrl(uriScheme?: string) {
-	return `https://router.shengsuanyun.com/auth?callback_url=${getCallbackUrl("shengsuanyun", uriScheme)}`
+	return `https://router.shengsuanyun.com/auth?callback_url=${getCallbackUrl("ssy", uriScheme)}`
 }

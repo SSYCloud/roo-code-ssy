@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-import { RooCodeEventName, rooCodeEventsSchema, rooCodeSettingsSchema } from "./roo-code.js"
+import { RooCodeEventName, rooCodeEventsSchema, rooCodeSettingsSchema } from "./roo-vibecoding.js"
 
 /**
  * Ack

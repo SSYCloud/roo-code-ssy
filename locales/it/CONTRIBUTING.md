@@ -46,7 +46,7 @@ Menziona l'allineamento con queste aree nelle tue PR.
 ### 3. Unisciti alla community Roo Code Chinese SSY
 
 - **Principale:** Unisciti al nostro [Discord](https://discord.gg/roocode) e invia un DM a **Hannes Rudolph (`hrudolph`)**.
-- **Alternativa:** I collaboratori esperti possono partecipare direttamente tramite [GitHub Projects](https://github.com/orgs/RooVetGit/projects/1).
+- **Alternativa:** I collaboratori esperti possono partecipare direttamente tramite [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1).
 
 ## Trovare e pianificare il tuo contributo
 
@@ -60,7 +60,7 @@ Menziona l'allineamento con queste aree nelle tue PR.
 
 Tutti i contributi devono iniziare con una Issue GitHub.
 
-- **Verificare le issue esistenti:** Cerca su [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues).
+- **Verificare le issue esistenti:** Cerca su [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues).
 - **Creare una issue:** Usa i template appropriati:
     - **Bug:** Template "Bug Report".
     - **Funzionalità:** Template "Detailed Feature Proposal". Approvazione richiesta prima di iniziare.
@@ -70,24 +70,24 @@ Tutti i contributi devono iniziare con una Issue GitHub.
 
 ### Decidere su cosa lavorare
 
-- Controlla il [Progetto GitHub](https://github.com/orgs/RooVetGit/projects/1) per "Good First Issues" non assegnate.
-- Per la documentazione, visita [Roo Code Docs](https://github.com/RooVetGit/Roo-Code-Docs).
+- Controlla il [Progetto GitHub](https://github.com/orgs/RooCodeInc/projects/1) per "Good First Issues" non assegnate.
+- Per la documentazione, visita [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs).
 
 ### Segnalare bug
 
 - Controlla prima i report esistenti.
-- Crea nuovi report di bug usando il [template "Bug Report"](https://github.com/RooVetGit/Roo-Code/issues/new/choose).
-- **Problemi di sicurezza:** Segnala privatamente tramite [security advisories](https://github.com/RooVetGit/Roo-Code/security/advisories/new).
+- Crea nuovi report di bug usando il [template "Bug Report"](https://github.com/RooCodeInc/Roo-Code/issues/new/choose).
+- **Problemi di sicurezza:** Segnala privatamente tramite [security advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new).
 
 <<<<<<< HEAD
+
 - **Good First Issues**: Consulta la sezione "Issue [Unassigned]" del nostro [progetto Roo Code Chinese SSY Issues](https://github.com/orgs/RooVetGit/projects/1) su GitHub.
 - **Documentazione**: Anche se questo `CONTRIBUTING.md` è la guida principale per i contributi al codice, se vuoi contribuire ad altra documentazione (come guide utente o API), consulta il [repo Roo Code Chinese SSY Docs](https://github.com/RooVetGit/Roo-Code-Docs) o chiedi nella community Discord.
-- **Proporre nuove funzionalità**:
-    1.  **Idea/discussione iniziale**: Per idee generali o iniziali, avvia una discussione su [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests).
-    2.  **Proposta formale**: Per proposte specifiche e pronte per la valutazione, crea una issue "Detailed Feature Proposal" usando il template sulla nostra [pagina delle issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Questo è fondamentale nel nostro **approccio Issue-First**.
-=======
+- # **Proporre nuove funzionalità**: 1. **Idea/discussione iniziale**: Per idee generali o iniziali, avvia una discussione su [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests). 2. **Proposta formale**: Per proposte specifiche e pronte per la valutazione, crea una issue "Detailed Feature Proposal" usando il template sulla nostra [pagina delle issues](https://github.com/RooVetGit/Roo-Code/issues/new/choose). Questo è fondamentale nel nostro **approccio Issue-First**.
+
 ## Processo di sviluppo e invio
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
+> > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### Configurazione dello sviluppo
 

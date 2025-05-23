@@ -10,23 +10,10 @@ Roo Code Chinese SSY 是一个由社区驱动的项目，我们非常重视每�
 
 ## 目录
 
-- [I. 贡献前须知](#i-贡献前须知)
-    - [1. 行为准则](#1-行为准则)
-    - [2. 了解项目路线图](#2-了解项目路线图)
-<<<<<<< HEAD
-        - [Provider 支持](#provider-支持)
-        - [模型支持](#模型支持)
-        - [系统支持](#系统支持)
-        - [文档](#文档)
-        - [稳定性](#稳定性)
-        - [国际化](#国际化)
-    - [3. 加入 Roo Code Chinese SSY 社区](#3-加入-roo-code-社区)
-=======
-        - [可靠性优先](#可靠性优先)
-        - [增强用户体验](#增强用户体验)
-        - [引领代理性能](#引领代理性能)
-    - [3. 加入 Roo Code 社区](#3-加入-roo-code-社区)
->>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
+- [I. 贡献前须知](#i-贡献前须知) - [1. 行为准则](#1-行为准则) - [2. 了解项目路线图](#2-了解项目路线图)
+  <<<<<<< HEAD - [Provider 支持](#provider-支持) - [模型支持](#模型支持) - [系统支持](#系统支持) - [文档](#文档) - [稳定性](#稳定性) - [国际化](#国际化) - [3. 加入 Roo Code Chinese SSY 社区](#3-加入-roo-vibecoding-社区)
+  ======= - [可靠性优先](#可靠性优先) - [增强用户体验](#增强用户体验) - [引领代理性能](#引领代理性能) - [3. 加入 Roo Code 社区](#3-加入-roo-vibecoding-社区)
+    > > > > > > > 7d755367411806184c611c092d30cd9f4e516ff3
 - [II. 寻找与规划你的贡献](#ii-寻找与规划你的贡献)
     - [1. 贡献类型](#1-贡献类型)
     - [2. 关键原则：Issue-First 方式](#2-关键原则-issue-first-方式)
@@ -44,10 +31,8 @@ Roo Code Chinese SSY 是一个由社区驱动的项目，我们非常重视每�
             - [开放 PR 条件](#开放-pr-条件)
             - [流程](#流程)
             - [责任分工](#责任分工)
-- [IV. 法律声明](#iv-法律声明)
-    - [贡献协议](#贡献协议)
-=======
-Roo Code 是一个由社区驱动的项目，我们高度重视每一份贡献。为了简化协作流程，我们采用 [Issue-First](#issue-first-方式) 原则，这意味着所有 [Pull Request (PR)](#提交-pull-request) 必须首先关联到 GitHub Issue。请仔细阅读本指南。
+- # [IV. 法律声明](#iv-法律声明) - [贡献协议](#贡献协议)
+    Roo Code 是一个由社区驱动的项目，我们高度重视每一份贡献。为了简化协作流程，我们采用 [Issue-First](#issue-first-方式) 原则，这意味着所有 [Pull Request (PR)](#提交-pull-request) 必须首先关联到 GitHub Issue。请仔细阅读本指南。
 
 ## 目录
 
@@ -55,7 +40,7 @@ Roo Code 是一个由社区驱动的项目，我们高度重视每一份贡献�
 - [寻找与规划你的贡献](#寻找与规划你的贡献)
 - [开发与提交流程](#开发与提交流程)
 - [法律声明](#法律声明)
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+    > > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ## 贡献前须知
 
@@ -69,7 +54,8 @@ Roo Code 是一个由社区驱动的项目，我们高度重视每一份贡献�
 Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和未来方向。了解路线图有助于你：
 =======
 我们的路线图指引项目方向。请将你的贡献与这些关键目标保持一致：
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
+> > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### 可靠性优先
 
@@ -87,6 +73,7 @@ Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和�
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+
 - 通过自定义系统提示词和工作流支持本地模型
 - Benchmark 测试与用例
 
@@ -121,17 +108,15 @@ Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和�
 - 我们希望 Roo Code Chinese SSY 说每个人的语言
 - Queremos que Roo Code Chinese SSY hable el idioma de todos
 - हम चाहते हैं कि Roo Code Chinese SSY हर किसी की भाषा बोले
-- نريد أن يتحدث Roo Code Chinese SSY لغة الجميع
-=======
+- # نريد أن يتحدث Roo Code Chinese SSY لغة الجميع
 - 建立全面的评估基准（evals）来衡量实际工作中的生产力
 - 让每个人都能轻松运行和解读这些评估
 - 提供 Roo Code 改进，展示明确的评分提升
->>>>>>> 7d755367411806184c611c092d30cd9f4e516ff3
-=======
+    > > > > > > > # 7d755367411806184c611c092d30cd9f4e516ff3
 - 建立全面的评估基准（evals）衡量实际工作中的生产力
 - 让每个人都能轻松运行和解读这些评估
 - 提供明显提升评分的改进
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+    > > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 在 PR 中请提及与这些领域的关联。
 
@@ -143,13 +128,13 @@ Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和�
 - **主要方式**：
     1.  加入 [Roo Code Chinese SSY Discord 社区](https://discord.gg/roocode)。
     2.  加入后，私信 **Hannes Rudolph**（Discord: `hrudolph`），表达你的兴趣并获取指导。
-- **有经验的贡献者可选**：如果你熟悉 Issue-First 方式，可以直接通过 GitHub 跟进 [看板](https://github.com/orgs/RooVetGit/projects/1)，通过 issue 和 pull request 沟通。
-=======
+- # **有经验的贡献者可选**：如果你熟悉 Issue-First 方式，可以直接通过 GitHub 跟进 [看板](https://github.com/orgs/RooVetGit/projects/1)，通过 issue 和 pull request 沟通。
 - **主要方式：** 加入我们的 [Discord](https://discord.gg/roocode) 并私信 **Hannes Rudolph (`hrudolph`)**。
-- **替代方式：** 有经验的贡献者可通过 [GitHub Projects](https://github.com/orgs/RooVetGit/projects/1) 直接参与。
+- **替代方式：** 有经验的贡献者可通过 [GitHub Projects](https://github.com/orgs/RooCodeInc/projects/1) 直接参与。
 
 ## 寻找与规划你的贡献
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
+> > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### 贡献类型
 
@@ -161,7 +146,7 @@ Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和�
 
 所有贡献必须从 GitHub Issue 开始。
 
-- **检查现有 issue：** 搜索 [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues)。
+- **检查现有 issue：** 搜索 [GitHub Issues](https://github.com/RooCodeInc/Roo-Code/issues)。
 - **创建 issue：** 使用适当模板：
     - **Bug：** "Bug Report" 模板。
     - **功能：** "Detailed Feature Proposal" 模板。开始前需获得批准。
@@ -171,30 +156,31 @@ Roo Code Chinese SSY 有清晰的发展路线图，指引我们的优先级和�
 
 ### 决定要做什么
 
-- 查看 [GitHub 项目](https://github.com/orgs/RooVetGit/projects/1) 中未分配的 "Good First Issues"。
-- 文档相关，请访问 [Roo Code Docs](https://github.com/RooVetGit/Roo-Code-Docs)。
+- 查看 [GitHub 项目](https://github.com/orgs/RooCodeInc/projects/1) 中未分配的 "Good First Issues"。
+- 文档相关，请访问 [Roo Code Docs](https://github.com/RooCodeInc/Roo-Code-Docs)。
 
 ### 报告 Bug
 
 - 先检查是否已有相关报告。
-- 使用 ["Bug Report" 模板](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 创建新 bug 报告。
-- **安全问题：** 通过 [security advisories](https://github.com/RooVetGit/Roo-Code/security/advisories/new) 私下报告。
+- 使用 ["Bug Report" 模板](https://github.com/RooCodeInc/Roo-Code/issues/new/choose) 创建新 bug 报告。
+- **安全问题：** 通过 [security advisories](https://github.com/RooCodeInc/Roo-Code/security/advisories/new) 私下报告。
 
 <<<<<<< HEAD
+
 - **Good First Issues**：查看 GitHub [Roo Code Chinese SSY Issues 项目](https://github.com/orgs/RooVetGit/projects/1) 的“未分配 Issue”部分。
 - **文档**：虽然本 `CONTRIBUTING.md` 是代码贡献主指南，但如想参与其他文档（如用户指南、API 文档），请查阅 [Roo Code Chinese SSY Docs 仓库](https://github.com/RooVetGit/Roo-Code-Docs) 或在 Discord 社区咨询。
-- **提出新功能**：
-    1.  **初步想法/讨论**：广泛或初步想法可在 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests) 讨论。
-    2.  **正式提案**：具体、可执行的建议请用 [issues 页面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的“Detailed Feature Proposal”模板新建 issue。这是 **Issue-First 方式** 的关键环节。
-=======
+- # **提出新功能**：1. **初步想法/讨论**：广泛或初步想法可在 [GitHub Discussions](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests) 讨论。2. **正式提案**：具体、可执行的建议请用 [issues 页面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的“Detailed Feature Proposal”模板新建 issue。这是 **Issue-First 方式** 的关键环节。
+
 ## 开发与提交流程
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
+> > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
 
 ### 开发环境配置
 
 1. **Fork & Clone：**
 
 <<<<<<< HEAD
+
 1.  **查找已有 issue**：在 [GitHub Issues](https://github.com/RooVetGit/Roo-Code/issues) 检查是否已有人报告。
 2.  **新建 issue**：如无重复，请用 [issues 页面](https://github.com/RooVetGit/Roo-Code/issues/new/choose) 的“Bug Report”模板新建。
 
@@ -219,17 +205,22 @@ webview（`webview-ui`）的更改会通过热更新（HMR）即时生效。核�
 
 ```sh
 npm run build
-code --install-extension bin/roo-cline-<版本号>.vsix
+code --install-extension bin/roo-vibecoding-<版本号>.vsix
 =======
 ```
+
 git clone https://github.com/你的用户名/Roo-Code.git
->>>>>>> d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
+> > > > > > > d7eec3afa6acde24d3000fde5e5f4f005fad757c
+
 ```
 
 2. **安装依赖：**
 
 ```
+
 npm run install:all
+
 ```
 
 3. **调试：** 在 VS Code 中按 `F5` 打开。
@@ -264,3 +255,4 @@ npm run install:all
 ## 法律声明
 
 提交贡献即表示你同意你的贡献将基于 Apache 2.0 许可证，与 Roo Code 的许可一致。
+```

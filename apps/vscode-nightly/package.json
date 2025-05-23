@@ -1,0 +1,15 @@
+{
+	"name": "@roo-vibecoding/vscode-nightly",
+	"description": "Nightly build for the Roo Code VSCode extension.",
+	"private": true,
+	"packageManager": "pnpm@10.8.1",
+	"scripts": {
+		"bundle": "pnpm clean && pnpm --filter @roo-vibecoding/build build && node esbuild.mjs",
+		"build": "pnpm bundle --production && pnpm --filter @roo-vibecoding/vscode-webview build --mode nightly",
+		"vsix": "pnpm build && cd build && mkdirp ../../../bin && npx vsce package --no-dependencies --out ../../../bin",
+		"clean": "rimraf build .turbo"
+	},
+	"devDependencies": {
+		"@roo-vibecoding/build": "workspace:^"
+	}
+}

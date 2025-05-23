@@ -1,0 +1,7 @@
+{
+	"name": "@roo-vibecoding/config-typescript",
+	"private": true,
+	"publishConfig": {
+		"access": "public"
+	}
+}

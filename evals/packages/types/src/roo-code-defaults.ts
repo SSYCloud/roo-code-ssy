@@ -1,4 +1,4 @@
-import { RooCodeSettings } from "./roo-code.js"
+import { RooCodeSettings } from "./roo-vibecoding.js"
 
 export const rooCodeDefaults: RooCodeSettings = {
 	apiProvider: "openrouter",

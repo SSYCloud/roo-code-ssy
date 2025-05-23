@@ -6,7 +6,6 @@ import axios from "axios"
 
 import { ClineProvider } from "../ClineProvider"
 import { ProviderSettingsEntry, ClineMessage, ExtensionMessage, ExtensionState } from "../../../shared/ExtensionMessage"
-import { setSoundEnabled } from "../../../utils/sound"
 import { setTtsEnabled } from "../../../utils/tts"
 import { defaultModeSlug } from "../../../shared/modes"
 import { experimentDefault } from "../../../shared/experiments"
@@ -171,10 +170,6 @@ jest.mock("vscode", () => ({
 		Development: 2,
 		Test: 3,
 	},
-}))
-
-jest.mock("../../../utils/sound", () => ({
-	setSoundEnabled: jest.fn(),
 }))
 
 jest.mock("../../../utils/tts", () => ({
@@ -365,7 +360,7 @@ describe("ClineProvider", () => {
 
 		// Verify Content Security Policy contains the necessary PostHog domains
 		expect(mockWebviewView.webview.html).toContain(
-			"connect-src https://openrouter.ai https://api.requesty.ai https://us.i.posthog.com https://us-assets.i.posthog.com;",
+			"connect-src https://openrouter.ai https://api.requesty.ai https://us.i.posthog.com https://us-assets.i.posthog.com",
 		)
 
 		// Extract the script-src directive section and verify required security elements
@@ -417,6 +412,7 @@ describe("ClineProvider", () => {
 			showRooIgnoredFiles: true,
 			renderContext: "sidebar",
 			maxReadFileLine: 500,
+			autoCondenseContextPercent: 100,
 		}
 
 		const message: ExtensionMessage = {
@@ -545,14 +541,12 @@ describe("ClineProvider", () => {
 
 		// Simulate setting sound to enabled
 		await messageHandler({ type: "soundEnabled", bool: true })
-		expect(setSoundEnabled).toHaveBeenCalledWith(true)
 		expect(updateGlobalStateSpy).toHaveBeenCalledWith("soundEnabled", true)
 		expect(mockContext.globalState.update).toHaveBeenCalledWith("soundEnabled", true)
 		expect(mockPostMessage).toHaveBeenCalled()
 
 		// Simulate setting sound to disabled
 		await messageHandler({ type: "soundEnabled", bool: false })
-		expect(setSoundEnabled).toHaveBeenCalledWith(false)
 		expect(mockContext.globalState.update).toHaveBeenCalledWith("soundEnabled", false)
 		expect(mockPostMessage).toHaveBeenCalled()
 
@@ -588,6 +582,27 @@ describe("ClineProvider", () => {
 
 		const state = await provider.getState()
 		expect(state.alwaysApproveResubmit).toBe(false)
+	})
+
+	test("autoCondenseContextPercent defaults to 100", async () => {
+		// Mock globalState.get to return undefined for autoCondenseContextPercent
+		;(mockContext.globalState.get as jest.Mock).mockImplementation((key: string) =>
+			key === "autoCondenseContextPercent" ? undefined : null,
+		)
+
+		const state = await provider.getState()
+		expect(state.autoCondenseContextPercent).toBe(100)
+	})
+
+	test("handles autoCondenseContextPercent message", async () => {
+		await provider.resolveWebviewView(mockWebviewView)
+		const messageHandler = (mockWebviewView.webview.onDidReceiveMessage as jest.Mock).mock.calls[0][0]
+
+		await messageHandler({ type: "autoCondenseContextPercent", value: 75 })
+
+		expect(updateGlobalStateSpy).toHaveBeenCalledWith("autoCondenseContextPercent", 75)
+		expect(mockContext.globalState.update).toHaveBeenCalledWith("autoCondenseContextPercent", 75)
+		expect(mockPostMessage).toHaveBeenCalled()
 	})
 
 	it("loads saved API config when switching modes", async () => {

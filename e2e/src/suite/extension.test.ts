@@ -1,24 +1,47 @@
 import * as assert from "assert"
 import * as vscode from "vscode"
 
+import { Package } from "@roo-vibecoding/types"
+
 suite("Roo Code Chinese SSY Extension", () => {
 	test("Commands should be registered", async () => {
 		const expectedCommands = [
-			"roo-vibecoding.plusButtonClicked",
-			"roo-vibecoding.mcpButtonClicked",
-			"roo-vibecoding.historyButtonClicked",
-			"roo-vibecoding.popoutButtonClicked",
-			"roo-vibecoding.settingsButtonClicked",
-			"roo-vibecoding.openInNewTab",
-			"roo-vibecoding.explainCode",
-			"roo-vibecoding.fixCode",
-			"roo-vibecoding.improveCode",
+			"SidebarProvider.open",
+			"SidebarProvider.focus",
+			"SidebarProvider.resetViewLocation",
+			"SidebarProvider.toggleVisibility",
+			"SidebarProvider.removeView",
+			"activationCompleted",
+			"plusButtonClicked",
+			"mcpButtonClicked",
+			"promptsButtonClicked",
+			"popoutButtonClicked",
+			"openInNewTab",
+			"settingsButtonClicked",
+			"historyButtonClicked",
+			"showHumanRelayDialog",
+			"registerHumanRelayCallback",
+			"unregisterHumanRelayCallback",
+			"handleHumanRelayResponse",
+			"newTask",
+			"setCustomStoragePath",
+			"focusInput",
+			"acceptInput",
+			"explainCode",
+			"fixCode",
+			"improveCode",
+			"addToContext",
+			"terminalAddToContext",
+			"terminalFixCommand",
+			"terminalExplainCommand",
 		]
 
-		const commands = await vscode.commands.getCommands(true)
+		const commands = new Set(
+			(await vscode.commands.getCommands(true)).filter((cmd) => cmd.startsWith(Package.name)),
+		)
 
-		for (const cmd of expectedCommands) {
-			assert.ok(commands.includes(cmd), `Command ${cmd} should be registered`)
+		for (const command of expectedCommands) {
+			assert.ok(commands.has(`${Package.name}.${command}`), `Command ${command} should be registered`)
 		}
 	})
 })

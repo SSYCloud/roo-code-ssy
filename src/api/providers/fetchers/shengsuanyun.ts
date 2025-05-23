@@ -1,9 +1,9 @@
 import axios from "axios"
 import { ModelInfo } from "../../../shared/api"
-import { parseApiPrice } from "../../../utils/cost"
 
 export async function getShengSuanYunModels(): Promise<Record<string, ModelInfo>> {
 	const models: Record<string, ModelInfo> = {}
+	const parseApiPrice = (price: any) => (price ? parseFloat(price) / 10000 : undefined)
 	try {
 		const url = "https://router.shengsuanyun.com/api/v1/models/"
 		const response = await axios.get(url)

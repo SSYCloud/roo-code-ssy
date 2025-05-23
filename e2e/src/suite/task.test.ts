@@ -1,12 +1,13 @@
 import * as assert from "assert"
 
-import type { ClineMessage } from "../../../src/exports/roo-code"
+import type { RooCodeAPI, ClineMessage } from "@roo-vibecoding/types"
 
 import { waitUntilCompleted } from "./utils"
 
 suite("Roo Code Chinese SSY Task", () => {
 	test("Should handle prompt and response correctly", async () => {
-		const api = globalThis.api
+		// @ts-expect-error - Expose the API to the tests.
+		const api = globalThis.api as RooCodeAPI
 
 		const messages: ClineMessage[] = []
 

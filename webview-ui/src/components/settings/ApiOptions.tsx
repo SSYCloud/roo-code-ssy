@@ -1,7 +1,6 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from "react"
 import { convertHeadersToObject } from "./utils/headers"
 import { useDebounce } from "react-use"
-import { VSCodeLink } from "@vscode/webview-ui-toolkit/react"
 
 import {
 	type ProviderName,
@@ -54,7 +53,6 @@ import { DiffSettingsControl } from "./DiffSettingsControl"
 import { TemperatureControl } from "./TemperatureControl"
 import { RateLimitSecondsControl } from "./RateLimitSecondsControl"
 import { BedrockCustomArn } from "./providers/BedrockCustomArn"
-import { buildDocLink } from "@src/utils/docLinks"
 
 export interface ApiOptionsProps {
 	uriScheme: string | undefined
@@ -82,7 +80,6 @@ const ApiOptions = ({
 
 	useEffect(() => {
 		const propHeaders = apiConfiguration?.openAiHeaders || {}
-
 		if (JSON.stringify(customHeaders) !== JSON.stringify(Object.entries(propHeaders))) {
 			setCustomHeaders(Object.entries(propHeaders))
 		}
@@ -248,39 +245,11 @@ const ApiOptions = ({
 		],
 	)
 
-	const docs = useMemo(() => {
-		const provider = PROVIDERS.find(({ value }) => value === selectedProvider)
-		const name = provider?.label
-
-		if (!name) {
-			return undefined
-		}
-
-		// Get the URL slug - use custom mapping if available, otherwise use the provider key.
-		const slugs: Record<string, string> = {
-			"openai-native": "openai",
-			openai: "openai-compatible",
-		}
-
-		const slug = slugs[selectedProvider] || selectedProvider
-		return {
-			url: buildDocLink(`providers/${slug}`, "provider_docs"),
-			name,
-		}
-	}, [selectedProvider])
-
 	return (
 		<div className="flex flex-col gap-3">
 			<div className="flex flex-col gap-1 relative">
 				<div className="flex justify-between items-center">
 					<label className="block font-medium mb-1">{t("settings:providers.apiProvider")}</label>
-					{docs && (
-						<div className="text-xs text-vscode-descriptionForeground">
-							<VSCodeLink href={docs.url} className="hover:text-vscode-foreground" target="_blank">
-								{t("settings:providers.providerDocumentation", { provider: docs.name })}
-							</VSCodeLink>
-						</div>
-					)}
 				</div>
 				<Select value={selectedProvider} onValueChange={(value) => onProviderChange(value as ProviderName)}>
 					<SelectTrigger className="w-full">

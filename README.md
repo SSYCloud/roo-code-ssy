@@ -10,7 +10,7 @@
 <div align="center">
   <h1>Roo Code-中文版胜算云</h1>
   <p align="center">
-  <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
+  <img src="https://github.com/shengsuan/Roo-Code-ssy/blob/ssy/src/assets/docs/demo.gif" width="100%" />
   </p>
   <p>本项目为Roo Code-中文版，增加国产大模型，可以免费试用，Google热门模型Google: Gemini 2.5 Pro Preview，Google: Gemini 2.0 Flash限量半价，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   
@@ -113,9 +113,15 @@ MCP 通过允许您添加无限自定义工具来扩展 Roo Code-中文版胜算
 
 ### 社区
 
-- **Discord：** [加入我们的 Discord 服务器](https://discord.gg/roocode)获取实时帮助和讨论
-- **Reddit：** [访问我们的 subreddit](https://www.reddit.com/r/RooCode)分享经验和技巧
-- **GitHub：** 报告[问题](https://github.com/RooVetGit/Roo-Code/issues)或请求[功能](https://github.com/RooVetGit/Roo-Code/discussions/categories/feature-requests?discussions_q=is%3Aopen+category%3A%22Feature+Requests%22+sort%3Atop)
+- **Discord：** [加入我们的 Discord 服务器](https://discord.gg/frBHkRKB4x)获取实时帮助和讨论
+
+<br>
+
+APIRouter进群交流<br>（如果无法加群，请加企业微信客服）<br>
+<img src="https://github.com/user-attachments/assets/41e6dc76-07c9-4dbf-ac35-d2494ebc9a41" alt="APIRouter企业微信群" width="250" /> <br>
+
+企业客服咨询<br>
+<img src="https://github.com/user-attachments/assets/c180b033-d62c-4dc0-9c2a-a3ad8c70e5a4" alt="企业微信客服" width="250" />
 
 ---
 

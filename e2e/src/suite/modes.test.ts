@@ -1,12 +1,13 @@
 import * as assert from "assert"
 
-import type { ClineMessage } from "../../../src/exports/roo-code"
+import type { RooCodeAPI, ClineMessage } from "@roo-vibecoding/types"
 
 import { waitUntilCompleted } from "./utils"
 
 suite("Roo Code Chinese SSY Modes", () => {
 	test("Should handle switching modes correctly", async () => {
-		const api = globalThis.api
+		// @ts-expect-error - Expose the API to the tests.
+		const api = globalThis.api as RooCodeAPI
 
 		/**
 		 * Switch modes.
@@ -15,7 +16,7 @@ suite("Roo Code Chinese SSY Modes", () => {
 		const switchModesPrompt =
 			"For each mode (Architect, Ask, Debug) respond with the mode name and what it specializes in after switching to that mode."
 
-		let messages: ClineMessage[] = []
+		const messages: ClineMessage[] = []
 
 		const modeSwitches: string[] = []
 

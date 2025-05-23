@@ -4,11 +4,10 @@ import pWaitFor from "p-wait-for"
 import * as vscode from "vscode"
 
 import { ClineProvider } from "./ClineProvider"
-import { Language, ProviderSettings } from "../../schemas"
+import { Language, ProviderSettings, GlobalState, Package } from "../../schemas"
 import { changeLanguage, t } from "../../i18n"
 import { RouterName, toRouterName } from "../../shared/api"
 import { supportPrompt } from "../../shared/support-prompt"
-
 import { checkoutDiffPayloadSchema, checkoutRestorePayloadSchema, WebviewMessage } from "../../shared/WebviewMessage"
 import { checkExistKey } from "../../shared/checkExistApiConfig"
 import { experimentDefault } from "../../shared/experiments"
@@ -19,7 +18,6 @@ import { getTheme } from "../../integrations/theme/getTheme"
 import { discoverChromeHostUrl, tryChromeHostUrl } from "../../services/browser/browserDiscovery"
 import { searchWorkspaceFiles } from "../../services/search/file-search"
 import { fileExistsAtPath } from "../../utils/fs"
-import { playSound, setSoundEnabled, setSoundVolume } from "../../utils/sound"
 import { playTts, setTtsEnabled, setTtsSpeed, stopTts } from "../../utils/tts"
 import { singleCompletionHandler } from "../../utils/single-completion-handler"
 import { searchCommits } from "../../utils/git"
@@ -33,9 +31,9 @@ import { telemetryService } from "../../services/telemetry/TelemetryService"
 import { TelemetrySetting } from "../../shared/TelemetrySetting"
 import { getWorkspacePath } from "../../utils/path"
 import { Mode, defaultModeSlug } from "../../shared/modes"
-import { GlobalState } from "../../schemas"
 import { getModels, flushModels } from "../../api/providers/fetchers/modelCache"
 import { generateSystemPrompt } from "./generateSystemPrompt"
+import { getCommand } from "../../utils/commands"
 
 const ALLOWED_VSCODE_SETTINGS = new Set(["terminal.integrated.inheritEnv"])
 
@@ -161,12 +159,20 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			await updateGlobalState("alwaysAllowModeSwitch", message.bool)
 			await provider.postStateToWebview()
 			break
+		case "allowedMaxRequests":
+			await updateGlobalState("allowedMaxRequests", message.value)
+			await provider.postStateToWebview()
+			break
 		case "alwaysAllowSubtasks":
 			await updateGlobalState("alwaysAllowSubtasks", message.bool)
 			await provider.postStateToWebview()
 			break
 		case "askResponse":
 			provider.getCurrentCline()?.handleWebviewAskResponse(message.askResponse!, message.text, message.images)
+			break
+		case "autoCondenseContextPercent":
+			await updateGlobalState("autoCondenseContextPercent", message.value)
+			await provider.postStateToWebview()
 			break
 		case "terminalOperation":
 			if (message.terminalOperation) {
@@ -194,6 +200,9 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			break
 		case "showTaskWithId":
 			provider.showTaskWithId(message.text!)
+			break
+		case "condenseTaskContextRequest":
+			provider.condenseTaskContext(message.text!)
 			break
 		case "deleteTaskWithId":
 			provider.deleteTaskWithId(message.text!)
@@ -374,7 +383,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 
 			// Also update workspace settings.
 			await vscode.workspace
-				.getConfiguration("roo-vibecoding")
+				.getConfiguration(Package.name)
 				.update("allowedCommands", message.commands, vscode.ConfigurationTarget.Global)
 
 			break
@@ -489,22 +498,15 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			await updateGlobalState("enableMcpServerCreation", message.bool ?? true)
 			await provider.postStateToWebview()
 			break
-		case "playSound":
-			if (message.audioType) {
-				const soundPath = path.join(provider.context.extensionPath, "audio", `${message.audioType}.wav`)
-				playSound(soundPath)
-			}
-			break
+		// playSound handler removed - now handled directly in the webview
 		case "soundEnabled":
 			const soundEnabled = message.bool ?? true
 			await updateGlobalState("soundEnabled", soundEnabled)
-			setSoundEnabled(soundEnabled) // Add this line to update the sound utility
 			await provider.postStateToWebview()
 			break
 		case "soundVolume":
 			const soundVolume = message.value ?? 0.5
 			await updateGlobalState("soundVolume", soundVolume)
-			setSoundVolume(soundVolume)
 			await provider.postStateToWebview()
 			break
 		case "ttsEnabled":
@@ -1235,7 +1237,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 			break
 		case "humanRelayResponse":
 			if (message.requestId && message.text) {
-				vscode.commands.executeCommand("roo-vibecoding.handleHumanRelayResponse", {
+				vscode.commands.executeCommand(getCommand("handleHumanRelayResponse"), {
 					requestId: message.requestId,
 					text: message.text,
 					cancelled: false,
@@ -1245,7 +1247,7 @@ export const webviewMessageHandler = async (provider: ClineProvider, message: We
 
 		case "humanRelayCancel":
 			if (message.requestId) {
-				vscode.commands.executeCommand("roo-vibecoding.handleHumanRelayResponse", {
+				vscode.commands.executeCommand(getCommand("handleHumanRelayResponse"), {
 					requestId: message.requestId,
 					cancelled: true,
 				})
