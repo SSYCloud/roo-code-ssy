@@ -3,7 +3,7 @@ import Mocha from "mocha"
 import { glob } from "glob"
 import * as vscode from "vscode"
 
-import { type RooCodeAPI, Package } from "@roo-vibecoding/types"
+import { type RooCodeAPI, Package } from "@roo-code/types"
 
 import { waitFor } from "./utils"
 

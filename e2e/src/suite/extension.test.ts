@@ -1,7 +1,7 @@
 import * as assert from "assert"
 import * as vscode from "vscode"
 
-import { Package } from "@roo-vibecoding/types"
+import { Package } from "@roo-code/types"
 
 suite("Roo Code Chinese SSY Extension", () => {
 	test("Commands should be registered", async () => {

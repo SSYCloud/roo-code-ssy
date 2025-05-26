@@ -1,5 +1,5 @@
 {
-	"name": "@roo-vibecoding/vscode-e2e",
+	"name": "@roo-code/vscode-e2e",
 	"private": true,
 	"scripts": {
 		"lint": "eslint \"src/**/*.{ts,tsx}\" --max-warnings=0",
@@ -10,9 +10,9 @@
 		"clean": "rimraf out .turbo"
 	},
 	"devDependencies": {
-		"@roo-vibecoding/config-eslint": "workspace:^",
-		"@roo-vibecoding/config-typescript": "workspace:^",
-		"@roo-vibecoding/types": "^1.12.0",
+		"@roo-code/config-eslint": "workspace:^",
+		"@roo-code/config-typescript": "workspace:^",
+		"@roo-code/types": "^1.12.0",
 		"@types/mocha": "^10.0.10",
 		"@types/node": "^22.14.1",
 		"@types/vscode": "^1.95.0",

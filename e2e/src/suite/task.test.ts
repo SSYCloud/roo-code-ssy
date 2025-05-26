@@ -1,6 +1,6 @@
 import * as assert from "assert"
 
-import type { RooCodeAPI, ClineMessage } from "@roo-vibecoding/types"
+import type { RooCodeAPI, ClineMessage } from "@roo-code/types"
 
 import { waitUntilCompleted } from "./utils"
 

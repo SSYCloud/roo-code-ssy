@@ -1,4 +1,4 @@
-import type { RooCodeAPI } from "@roo-vibecoding/types"
+import type { RooCodeAPI } from "@roo-code/types"
 
 type WaitForOptions = {
 	timeout?: number

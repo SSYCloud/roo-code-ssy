@@ -56,19 +56,19 @@ importers:
 
   apps/vscode-nightly:
     devDependencies:
-      '@roo-vibecoding/build':
+      '@roo-code/build':
         specifier: workspace:^
         version: link:../../packages/build
 
   e2e:
     devDependencies:
-      '@roo-vibecoding/config-eslint':
+      '@roo-code/config-eslint':
         specifier: workspace:^
         version: link:../packages/config-eslint
-      '@roo-vibecoding/config-typescript':
+      '@roo-code/config-typescript':
         specifier: workspace:^
         version: link:../packages/config-typescript
-      '@roo-vibecoding/types':
+      '@roo-code/types':
         specifier: ^1.12.0
         version: 1.12.0
       '@types/mocha':
@@ -105,10 +105,10 @@ importers:
         specifier: ^3.24.2
         version: 3.24.4
     devDependencies:
-      '@roo-vibecoding/config-eslint':
+      '@roo-code/config-eslint':
         specifier: workspace:^
         version: link:../config-eslint
-      '@roo-vibecoding/config-typescript':
+      '@roo-code/config-typescript':
         specifier: workspace:^
         version: link:../config-typescript
       '@types/node':
@@ -339,13 +339,13 @@ importers:
       '@jest/globals':
         specifier: ^29.7.0
         version: 29.7.0
-      '@roo-vibecoding/build':
+      '@roo-code/build':
         specifier: workspace:^
         version: link:../packages/build
-      '@roo-vibecoding/config-eslint':
+      '@roo-code/config-eslint':
         specifier: workspace:^
         version: link:../packages/config-eslint
-      '@roo-vibecoding/config-typescript':
+      '@roo-code/config-typescript':
         specifier: workspace:^
         version: link:../packages/config-typescript
       '@types/clone-deep':
@@ -622,10 +622,10 @@ importers:
       '@jest/globals':
         specifier: ^29.7.0
         version: 29.7.0
-      '@roo-vibecoding/config-eslint':
+      '@roo-code/config-eslint':
         specifier: workspace:^
         version: link:../packages/config-eslint
-      '@roo-vibecoding/config-typescript':
+      '@roo-code/config-typescript':
         specifier: workspace:^
         version: link:../packages/config-typescript
       '@storybook/addon-essentials':
@@ -2164,7 +2164,7 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@roo-vibecoding/types@1.12.0':
+  '@roo-code/types@1.12.0':
     resolution: {integrity: sha512-djdZ4lzsiOc+umX357JvcSwRlAMm05P+8DU58IFyZERmEh8wkm4TglDuaaRVGtQSHw9YGFikqfruLtZSEb7zJQ==}
 
   '@sec-ant/readable-stream@0.4.1':
@@ -10628,7 +10628,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.40.2':
     optional: true
 
-  '@roo-vibecoding/types@1.12.0':
+  '@roo-code/types@1.12.0':
     dependencies:
       zod: 3.24.4
 
