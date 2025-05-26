@@ -10,7 +10,7 @@
 <div align="center">
   <h1>Roo Code-中文版胜算云</h1>
   <p align="center">
-  <img src="https://github.com/shengsuan/Roo-Code-ssy/blob/ssy/src/assets/docs/demo.gif" width="100%" />
+  <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
   </p>
   <p>本项目为Roo Code-中文版，增加国产大模型，可以免费试用，Google热门模型Google: Gemini 2.5 Pro Preview，Google: Gemini 2.0 Flash限量半价，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   
