@@ -5,8 +5,10 @@
 		"node": "20.18.1"
 	},
 	"scripts": {
-		"preinstall": "npx only-allow pnpm",
+		"preinstall": "node scripts/bootstrap.mjs",
 		"prepare": "husky",
+		"install": "node scripts/bootstrap.mjs",
+		"install:all": "node scripts/bootstrap.mjs",
 		"lint": "turbo lint --log-order grouped --output-logs new-only",
 		"check-types": "turbo check-types --log-order grouped --output-logs new-only",
 		"test": "turbo test --log-order grouped --output-logs new-only",
@@ -16,6 +18,10 @@
 		"build:nightly": "pnpm --filter @roo-vibecoding/vscode-nightly vsix",
 		"changeset": "changeset",
 		"knip": "pnpm --filter @roo-vibecoding/build build && knip --include files",
+		"compile": "pnpm --filter roo-cline bundle",
+		"vsix": "pnpm --filter roo-cline vsix",
+		"generate-types": "pnpm --filter roo-cline generate-types",
+		"changeset:version": "cp CHANGELOG.md src/CHANGELOG.md && changeset version && cp -vf src/CHANGELOG.md .",
 		"update-contributors": "node scripts/update-contributors.js"
 	},
 	"devDependencies": {

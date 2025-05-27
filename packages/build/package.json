@@ -16,8 +16,8 @@
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {
-		"@roo-vibecoding/config-eslint": "workspace:^",
-		"@roo-vibecoding/config-typescript": "workspace:^",
+		"@roo-code/config-eslint": "workspace:^",
+		"@roo-code/config-typescript": "workspace:^",
 		"@types/node": "^22.15.20",
 		"vitest": "^3.1.3"
 	}

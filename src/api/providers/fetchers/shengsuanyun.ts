@@ -7,8 +7,7 @@ export async function getShengSuanYunModels(): Promise<Record<string, ModelInfo>
 	try {
 		const url = "https://router.shengsuanyun.com/api/v1/models/"
 		const response = await axios.get(url)
-		const rawModels = response.data.data
-		for (const rawModel of rawModels) {
+		for (const rawModel of response.data.data) {
 			const isSPTImg = rawModel.architecture?.input.includes("image") || false
 			const modelInfo: ModelInfo = {
 				maxTokens: rawModel.max_tokens,

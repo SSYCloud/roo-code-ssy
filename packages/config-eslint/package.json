@@ -1,5 +1,5 @@
 {
-	"name": "@roo-vibecoding/config-eslint",
+	"name": "@roo-code/config-eslint",
 	"private": true,
 	"type": "module",
 	"exports": {

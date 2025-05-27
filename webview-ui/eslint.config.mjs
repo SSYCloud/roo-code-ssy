@@ -6,7 +6,16 @@ export default [
 	{
 		rules: {
 			'@typescript-eslint/no-unused-expressions': 'off',
-			"@typescript-eslint/no-unused-vars": "off",
+			"@typescript-eslint/no-unused-vars": [
+				"error",
+				{
+					args: "all",
+					ignoreRestSiblings: true,
+					varsIgnorePattern: "^_",
+					argsIgnorePattern: "^_",
+					caughtErrorsIgnorePattern: "^_",
+				},
+			],
 			"@typescript-eslint/no-explicit-any": "off",
 			"react/prop-types": "off",
 			"react/display-name": "off",

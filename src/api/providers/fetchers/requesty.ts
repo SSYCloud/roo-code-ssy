@@ -30,7 +30,6 @@ export async function getRequestyModels(apiKey?: string): Promise<Record<string,
 				cacheWritesPrice: parseApiPrice(rawModel.caching_price),
 				cacheReadsPrice: parseApiPrice(rawModel.cached_price),
 			}
-
 			models[rawModel.id] = modelInfo
 		}
 	} catch (error) {

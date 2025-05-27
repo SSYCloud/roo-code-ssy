@@ -12,7 +12,7 @@ import { serializeError } from "serialize-error"
 import { TokenUsage, ToolUsage, ToolName, ContextCondense } from "../../schemas"
 
 // api
-import { ApiHandler, buildApiHandler } from "../../api"
+import { ApiHandler, ApiHandlerCreateMessageMetadata, buildApiHandler } from "../../api"
 import { ApiStream } from "../../api/transform/stream"
 
 // shared
@@ -20,6 +20,7 @@ import { ProviderSettings } from "../../shared/api"
 import { findLastIndex } from "../../shared/array"
 import { combineApiRequests } from "../../shared/combineApiRequests"
 import { combineCommandSequences } from "../../shared/combineCommandSequences"
+import { t } from "../../i18n"
 import {
 	ClineApiReqCancelReason,
 	ClineApiReqInfo,
@@ -483,12 +484,44 @@ export class Task extends EventEmitter<ClineEvents> {
 
 	public async condenseContext(): Promise<void> {
 		const systemPrompt = await this.getSystemPrompt()
+
+		// Get condensing configuration
+		// Using type assertion to handle the case where Phase 1 hasn't been implemented yet
+		const state = await this.providerRef.deref()?.getState()
+		const customCondensingPrompt = state ? (state as any).customCondensingPrompt : undefined
+		const condensingApiConfigId = state ? (state as any).condensingApiConfigId : undefined
+		const listApiConfigMeta = state ? (state as any).listApiConfigMeta : undefined
+
+		// Determine API handler to use
+		let condensingApiHandler: ApiHandler | undefined
+		if (condensingApiConfigId && listApiConfigMeta && Array.isArray(listApiConfigMeta)) {
+			// Using type assertion for the id property to avoid implicit any
+			const matchingConfig = listApiConfigMeta.find((config: any) => config.id === condensingApiConfigId)
+			if (matchingConfig) {
+				const profile = await this.providerRef.deref()?.providerSettingsManager.getProfile({
+					id: condensingApiConfigId,
+				})
+				// Ensure profile and apiProvider exist before trying to build handler
+				if (profile && profile.apiProvider) {
+					condensingApiHandler = buildApiHandler(profile)
+				}
+			}
+		}
+
 		const {
 			messages,
 			summary,
 			cost,
 			newContextTokens = 0,
-		} = await summarizeConversation(this.apiConversationHistory, this.api, systemPrompt, this.taskId)
+		} = await summarizeConversation(
+			this.apiConversationHistory,
+			this.api, // Main API handler (fallback)
+			systemPrompt, // Default summarization prompt (fallback)
+			this.taskId,
+			false, // manual trigger
+			customCondensingPrompt, // User's custom prompt
+			condensingApiHandler, // Specific handler for condensing
+		)
 		if (!summary) {
 			return
 		}
@@ -1007,9 +1040,7 @@ export class Task extends EventEmitter<ClineEvents> {
 		if (this.consecutiveMistakeCount >= this.consecutiveMistakeLimit) {
 			const { response, text, images } = await this.ask(
 				"mistake_limit_reached",
-				this.api.getModel().id.includes("claude")
-					? `This may indicate a failure in his thought process or inability to use a tool properly, which can be mitigated with some user guidance (e.g. "Try breaking down the task into smaller steps").`
-					: "Roo Code Chinese SSY uses complex prompts and iterative task execution that may be challenging for less capable models. For best results, it's recommended to use Claude 3.7 Sonnet for its advanced agentic coding capabilities.",
+				t("common:errors.mistake_limit_guidance"),
 			)
 
 			if (response === "messageResponse") {
@@ -1461,14 +1492,37 @@ export class Task extends EventEmitter<ClineEvents> {
 	}
 
 	public async *attemptApiRequest(retryAttempt: number = 0): ApiStream {
+		const state = await this.providerRef.deref()?.getState()
 		const {
 			apiConfiguration,
 			autoApprovalEnabled,
 			alwaysApproveResubmit,
 			requestDelaySeconds,
 			experiments,
+			mode,
 			autoCondenseContextPercent = 100,
-		} = (await this.providerRef.deref()?.getState()) ?? {}
+		} = state ?? {}
+
+		// Get condensing configuration for automatic triggers
+		const customCondensingPrompt = state?.customCondensingPrompt
+		const condensingApiConfigId = state?.condensingApiConfigId
+		const listApiConfigMeta = state?.listApiConfigMeta
+
+		// Determine API handler to use for condensing
+		let condensingApiHandler: ApiHandler | undefined
+		if (condensingApiConfigId && listApiConfigMeta && Array.isArray(listApiConfigMeta)) {
+			// Using type assertion for the id property to avoid implicit any
+			const matchingConfig = listApiConfigMeta.find((config: any) => config.id === condensingApiConfigId)
+			if (matchingConfig) {
+				const profile = await this.providerRef.deref()?.providerSettingsManager.getProfile({
+					id: condensingApiConfigId,
+				})
+				// Ensure profile and apiProvider exist before trying to build handler
+				if (profile && profile.apiProvider) {
+					condensingApiHandler = buildApiHandler(profile)
+				}
+			}
+		}
 
 		let rateLimitDelay = 0
 
@@ -1494,8 +1548,8 @@ export class Task extends EventEmitter<ClineEvents> {
 		this.lastApiRequestTime = Date.now()
 
 		const systemPrompt = await this.getSystemPrompt()
-
 		const { contextTokens } = this.getTokenUsage()
+
 		if (contextTokens) {
 			// Default max tokens value for thinking models when no specific
 			// value is set.
@@ -1503,7 +1557,7 @@ export class Task extends EventEmitter<ClineEvents> {
 
 			const modelInfo = this.api.getModel().info
 
-			const maxTokens = modelInfo.thinking
+			const maxTokens = modelInfo.supportsReasoningBudget
 				? this.apiConfiguration.modelMaxTokens || DEFAULT_THINKING_MODEL_MAX_TOKENS
 				: modelInfo.maxTokens
 
@@ -1520,6 +1574,8 @@ export class Task extends EventEmitter<ClineEvents> {
 				autoCondenseContextPercent,
 				systemPrompt,
 				taskId: this.taskId,
+				customCondensingPrompt,
+				condensingApiHandler,
 			})
 			if (truncateResult.messages !== this.apiConversationHistory) {
 				await this.overwriteApiConversationHistory(truncateResult.messages)
@@ -1546,8 +1602,7 @@ export class Task extends EventEmitter<ClineEvents> {
 		)
 
 		// Check if we've reached the maximum number of auto-approved requests
-		const { allowedMaxRequests } = (await this.providerRef.deref()?.getState()) ?? {}
-		const maxRequests = allowedMaxRequests || Infinity
+		const maxRequests = state?.allowedMaxRequests || Infinity
 
 		// Increment the counter for each new API request
 		this.consecutiveAutoApprovedRequestsCount++
@@ -1560,7 +1615,12 @@ export class Task extends EventEmitter<ClineEvents> {
 			}
 		}
 
-		const stream = this.api.createMessage(systemPrompt, cleanConversationHistory)
+		const metadata: ApiHandlerCreateMessageMetadata = {
+			mode: mode,
+			taskId: this.taskId,
+		}
+
+		const stream = this.api.createMessage(systemPrompt, cleanConversationHistory, metadata)
 		const iterator = stream[Symbol.asyncIterator]()
 
 		try {
