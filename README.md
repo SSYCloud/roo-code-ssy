@@ -14,7 +14,7 @@
   </p>
   <p>本项目为Roo Code-中文版，增加国产大模型，可以免费试用，Google热门模型Google: Gemini 2.5 Pro Preview，Google: Gemini 2.0 Flash限量半价，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   
-  <a href="https://discord.gg/vCqdPfwPCQ" target="_blank"><img src="https://img.shields.io/badge/加入%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="加入 Discord"></a>
+  <a href="https://discord.gg/WzdzX76d" target="_blank"><img src="https://img.shields.io/badge/加入%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="加入 Discord"></a>
   <a href="https://www.reddit.com/r/RooCode/" target="_blank"><img src="https://img.shields.io/badge/加入%20Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="加入 Reddit"></a>
   
 </div>
