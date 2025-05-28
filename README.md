@@ -12,7 +12,7 @@
   <p align="center">
   <img src="https://media.githubusercontent.com/media/RooVetGit/Roo-Code/main/assets/docs/demo.gif" width="100%" />
   </p>
-  <p>本项目为Roo Code-中文版，增加国产大模型，可以免费试用，Google热门模型Google: Gemini 2.5 Pro Preview，Google: Gemini 2.0 Flash限量半价，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
+  <p>本项目为Roo Code-中文版，增加国产大模型，可以免费试用，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   
   <a href="https://discord.gg/WzdzX76d" target="_blank"><img src="https://img.shields.io/badge/加入%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="加入 Discord"></a>
   <a href="https://www.reddit.com/r/RooCode/" target="_blank"><img src="https://img.shields.io/badge/加入%20Reddit-FF4500?style=for-the-badge&logo=reddit&logoColor=white" alt="加入 Reddit"></a>
@@ -22,7 +22,7 @@
 <br>
 
 <div align="center">
-<h1>胜算云Router的Gemini模型半价！</h1>
+<h1>胜算云Router的模型折扣活动开始啦！</h1>
 Google: Gemini 2.5 Pro Preview 05-06 与Gemini 2.5 Flash Preview 05-20 半价！详情点击链接：<a href="https://router.shengsuanyun.com/" target="_blank">胜算云Router</a><br>
 <a href="https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%9C%A8%20VS%20Marketplace%20%E4%B8%8A%E4%B8%8B%E8%BD%BD-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="在 VS Marketplace 上下载"></a>
 <a href="https://github.com/SSYCloud/roo-code-ssy/tree/ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%8A%9F%E8%83%BD%E8%AF%B7%E6%B1%82-yellow?style=for-the-badge" alt="功能请求"></a>
@@ -30,7 +30,48 @@ Google: Gemini 2.5 Pro Preview 05-06 与Gemini 2.5 Flash Preview 05-20 半价！
 <a href="https://docs.router.shengsuanyun.com/6690297m0" target="_blank"><img src="https://img.shields.io/badge/%E6%96%87%E6%A1%A3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="文档"></a>
 
 </div>
-
+## 胜算云Router的模型折扣活动开始啦！<br>
+【API超市】2025-05-28模型折扣活动开始啦！<br>
+Anthropic / Claude-Opus-4(折扣)<br>
+模型值：anthropic/claude-opus-4-discount<br>
+现在官方及各个平台此模型都有不稳定情况，如遇报错，优先切换至sonnet4折扣模型，这个稳定。<br>
+200K 上下文<br>
+$ 3.00 (¥21.56)原价15美元 / M 输入 tokens<br>
+$ 15.00 (¥107.81) 原价75美元 / M 输出 tokens<br>
+---<br>
+Anthropic / Claude-3.7-sonnet（折扣）<br>
+模型值：anthropic/claude-3.7-sonnet-discount<br>
+200K 上下文<br>
+$ 0.40 (¥2.87) 原价 3美元/ M 输入 tokens<br>
+$ 5.00 (¥35.94) 原价 15美元/ M 输出 tokens<br>
+---<br>
+Google / Gemini-2.5-pro-preview（折扣）<br>
+模型值：google/gemini-2.5-pro-preview-discount<br>
+1049K 上下文<br>
+$ 0.42 (¥3.02) 原价 1.25to2.50美元/ M 输入 tokens<br>
+$ 3.34 (¥24.01) 原价 10to15美元/ M 输出 tokens<br>
+---<br>
+Anthropic / Claude-Sonnet-4(折扣)<br>
+模型值：anthropic/claude-sonnet-4-discount<br>
+200K 上下文<br>
+$ 0.40 (¥2.87) 原价 3美元/ M 输入 tokens<br>
+$ 5.00 (¥35.94) 原价 15美元/ M 输出 tokens<br>
+---<br>
+XAI / Grok-3-beta（折扣）<br>
+模型值：x-ai/grok-3-beta-discount<br>
+131K 上下文<br>
+$ 0.50 (¥3.59) 原价 3美元 / M 输入 tokens<br>
+$ 5.00 (¥35.94) 原价 15美元 / M 输出 tokens<br>
+<br>
+以上模型需要手动修改模型值，对您造成的麻烦请多见谅。如您使用 <br>
+Cline-中文版<br>
+https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.cline-shengsuan<br>
+Kilo SSY Code Agent<br>
+https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy<br>
+Roo Code Chinese SSY<br>
+https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.roo-vibecoding<br>
+以上三种插件，可以直接在供应商中选择折扣模型<br>
+详情点击[胜算云Router](https://router.shengsuanyun.com/)<br>
 **Roo Code-中文版胜算云** 是一个 AI 驱动的**自主编码代理**，它存在于您的编辑器中。它可以：
 
 - 用自然语言沟通
