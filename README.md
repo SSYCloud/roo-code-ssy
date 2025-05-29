@@ -162,12 +162,8 @@ code --install-extension bin/roo-cline-<版本>.vsix
 Roo Code, Inc 不对其提供的代码、模型、工具及相关输出作任何担保。您需自行承担使用风险，包括但不限于：  
 ⚠️ 知识产权风险 | ⚠️ 安全漏洞 | ⚠️ 数据偏差  
 ⚠️ 程序错误 | ⚠️ 系统中断 | ⚠️ 财产损失  
-所有工具及输出均按「现状」提供，使用者对合法性及结果负全责。  
-
----
-
-### 参与贡献  
-欢迎社区贡献！请阅读 [CONTRIBUTING.md](CONTRIBUTING) 了解流程。  
+所有工具及输出均按现状提供，使用者对合法性及结果负全责。  
+  
 
 ---  
 
@@ -351,5 +347,3 @@ Thanks to all our contributors who have helped make Roo Code better!
 [Apache 2.0 © 2025 Roo Code, Inc.](./LICENSE)
 
 ---
-
-**Enjoy Roo Code!** Whether you keep it on a short leash or let it roam autonomously, we can’t wait to see what you build. If you have questions or feature ideas, drop by our [Reddit community](https://www.reddit.com/r/RooCode/) or [Discord](https://discord.gg/roocode). Happy coding!
