@@ -64,6 +64,113 @@ APIRouter进群交流<br>（如果无法加群，请加企业微信客服）<br>
   <img src="https://github.com/user-attachments/assets/c180b033-d62c-4dc0-9c2a-a3ad8c70e5a4" alt="企业微信客服" width="250" />
 </div>
 
+---
+
+**Roo Code 简介**  
+Roo Code 是一款内置于编辑器的 AI 自主编程助手，它能：  
+- 使用自然语言沟通  
+- 直接读写工作区文件  
+- 运行终端命令  
+- 自动化浏览器操作  
+- 集成任何 OpenAI 兼容或自定义 API/模型  
+- 通过「自定义模式」调整角色能力与个性  
+
+无论您需要灵活的编程搭档、系统架构师，还是 QA 工程师/产品经理等专业角色，Roo Code 都能助您高效构建软件。  
+
+📜 查看 [更新日志](CHANGELOG) 获取详细修复记录  
+
+---
+
+### 🎉 Roo Code 3.14 版本发布  
+基于用户反馈的重大升级：  
+1. **提示词缓存**：Gemini 供应商支持提示缓存（Vertex/OpenRouter 即将上线）  
+2. **强化编辑工具**：`search_and_replace` 与 `insert_content` 工具结束实验状态  
+3. **海量优化**：全插件功能增强与问题修复  
+
+---
+
+### 核心能力  
+🚀 自然语言生成代码  
+🔧 重构与调试代码  
+📝 编写/更新文档  
+🤔 解答代码库问题  
+🔄 自动化重复任务  
+🏗️ 创建新文件与项目  
+
+---
+
+### 快速入门  
+1. 安装 Roo Code  
+2. 连接 AI 供应商  
+3. 执行首个任务  
+
+---
+
+### 核心特性  
+**多模式协作**  
+- **编程模式**：通用编码任务  
+- **架构模式**：技术规划与设计  
+- **问答模式**：知识咨询  
+- **调试模式**：系统化问题诊断  
+- **自定义模式**：无限扩展安全审计、性能优化等专业场景  
+
+**智能工具集**  
+- 读写项目文件  
+- 执行 VS Code 终端命令  
+- 控制浏览器操作  
+- 通过 **MCP（模型上下文协议）** 接入外部工具  
+> MCP 支持无限扩展：集成 API/数据库/开发工具，定制专属工作流  
+
+**深度定制化**  
+- 自定义指令调整行为  
+- 本地模型离线运行  
+- 自动审批加速流程  
+
+---
+
+### 资源支持  
+- **文档中心**  
+  [基础指南](Documentation) | [高级功能](Advanced) | [常见问题](FAQ)  
+- **社区**  
+  [Discord 实时交流](Discord) | [Reddit 经验分享](Reddit) | [GitHub 反馈](GitHub)  
+
+---
+
+### 本地开发部署  
+```bash
+# 克隆仓库
+git clone https://github.com/RooVetGit/Roo-Code.git
+
+# 安装依赖
+npm run install:all
+
+# 启动 Webview (Vite/React 热更新)
+npm run dev
+
+# 调试：VS Code 按 F5 加载插件
+```
+**编译安装**  
+```bash
+npm run build  # 生成 bin/roo-cline-<版本>.vsix
+code --install-extension bin/roo-cline-<版本>.vsix
+```
+> 版本管理采用 changesets，更新记录见 [CHANGELOG.md](CHANGELOG)
+
+---
+
+### 免责声明  
+Roo Code, Inc 不对其提供的代码、模型、工具及相关输出作任何担保。您需自行承担使用风险，包括但不限于：  
+⚠️ 知识产权风险 | ⚠️ 安全漏洞 | ⚠️ 数据偏差  
+⚠️ 程序错误 | ⚠️ 系统中断 | ⚠️ 财产损失  
+所有工具及输出均按「现状」提供，使用者对合法性及结果负全责。  
+
+---
+
+### 参与贡献  
+欢迎社区贡献！请阅读 [CONTRIBUTING.md](CONTRIBUTING) 了解流程。  
+
+---  
+
 **Roo Code** is an AI-powered **autonomous coding agent** that lives in your editor. It can:
 
 - Communicate in natural language
