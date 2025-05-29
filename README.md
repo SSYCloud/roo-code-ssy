@@ -126,13 +126,6 @@ Roo Code 是一款内置于编辑器的 AI 自主编程助手，它能：
 - 本地模型离线运行  
 - 自动审批加速流程  
 
----
-
-### 资源支持  
-- **文档中心**  
-  [基础指南](Documentation) | [高级功能](Advanced) | [常见问题](FAQ)  
-- **社区**  
-  [Discord 实时交流](Discord) | [Reddit 经验分享](Reddit) | [GitHub 反馈](GitHub)  
 
 ---
 
@@ -300,11 +293,6 @@ We use [changesets](https://github.com/changesets/changesets) for versioning and
 
 **Please note** that Roo Code, Inc does **not** make any representations or warranties regarding any code, models, or other tools provided or made available in connection with Roo Code, any associated third-party tools, or any resulting outputs. You assume **all risks** associated with the use of any such tools or outputs; such tools are provided on an **"AS IS"** and **"AS AVAILABLE"** basis. Such risks may include, without limitation, intellectual property infringement, cyber vulnerabilities or attacks, bias, inaccuracies, errors, defects, viruses, downtime, property loss or damage, and/or personal injury. You are solely responsible for your use of any such tools or outputs (including, without limitation, the legality, appropriateness, and results thereof).
 
----
-
-## Contributing
-
-We love community contributions! Get started by reading our [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ---
 
