@@ -14,15 +14,15 @@
   </p>
   <p>本项目为Roo Code-中文版，增加折扣大模型，可以免费试用，与开发者联系，贡献想法，紧跟最新的 AI 驱动编码工具。</p>
   <a href="https://discord.gg/WzdzX76d" target="_blank"><img src="https://img.shields.io/badge/加入%20Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="加入 Discord"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%9C%A8%20VS%20Marketplace%20%E4%B8%8A%E4%B8%8B%E8%BD%BD-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="在 VS Marketplace 上下载"></a>
+<a href="https://github.com/SSYCloud/roo-code-ssy/tree/ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%8A%9F%E8%83%BD%E8%AF%B7%E6%B1%82-yellow?style=for-the-badge" alt="功能请求"></a>
+<a href="https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy&ssr=false#qna" target="_blank"><img src="https://img.shields.io/badge/%E8%AF%84%E5%88%86%20%26%20%E8%AF%84%E8%AE%BA-green?style=for-the-badge" alt="评分 & 评论"></a>
+<a href="https://docs.router.shengsuanyun.com/6690297m0" target="_blank"><img src="https://img.shields.io/badge/%E6%96%87%E6%A1%A3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="文档"></a>
 </div>
 <br>
 <br>
 <div align="center">
 <h1>模型价格【2折】⬇️ 活动限时【6.1-6.15】开发者日活动来了</h1>
-<a href="https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%9C%A8%20VS%20Marketplace%20%E4%B8%8A%E4%B8%8B%E8%BD%BD-blue?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="在 VS Marketplace 上下载"></a>
-<a href="https://github.com/SSYCloud/roo-code-ssy/tree/ssy" target="_blank"><img src="https://img.shields.io/badge/%E5%8A%9F%E8%83%BD%E8%AF%B7%E6%B1%82-yellow?style=for-the-badge" alt="功能请求"></a>
-<a href="https://marketplace.visualstudio.com/items?itemName=shengsuan-cloud.kilo-ssy&ssr=false#qna" target="_blank"><img src="https://img.shields.io/badge/%E8%AF%84%E5%88%86%20%26%20%E8%AF%84%E8%AE%BA-green?style=for-the-badge" alt="评分 & 评论"></a>
-<a href="https://docs.router.shengsuanyun.com/6690297m0" target="_blank"><img src="https://img.shields.io/badge/%E6%96%87%E6%A1%A3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="文档"></a>
 
 </div>
 【API超市】于 2025 年 06 月 1 日启动模型折扣活动！以下是本次参与折扣的 AI 模型详情：享受优惠请点击[胜算云Router](https://router.shengsuanyun.com/)<br>
