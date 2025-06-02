@@ -476,7 +476,7 @@
 		"@vscode/test-electron": "^2.5.2",
 		"@vscode/vsce": "^3.3.2",
 		"esbuild": "^0.24.0",
-		"eslint": "^8.57.0",
+		"eslint": "^9.28.0",
 		"execa": "^9.5.2",
 		"glob": "^11.0.1",
 		"husky": "^9.1.7",
