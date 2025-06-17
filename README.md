@@ -20,11 +20,7 @@
 <a href="https://docs.router.shengsuanyun.com/6690297m0" target="_blank"><img src="https://img.shields.io/badge/%E6%96%87%E6%A1%A3-6B46C1?style=for-the-badge&logo=readthedocs&logoColor=white" alt="文档"></a>
 </div>
 <br>
-<br>
-<div align="center">
-<h1>模型价格【2折】⬇️ 活动限时【6.1-6.15】开发者日活动来了</h1>
 
-</div>
 ##  Roo code-中文版核心优势
 ✅ **中文代码生成精准度提升200%**
 
