@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react"
 
-import { ProviderSettings, RouterModels, shengSuanYunDefaultModelId } from "@roo/shared/api"
-
+import { type ProviderSettings, type OrganizationAllowList, shengSuanYunDefaultModelId } from "@roo-code/types"
+import type { RouterModels } from "@roo/api"
 import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { VSCodeButtonLink } from "@src/components/common/VSCodeButtonLink"
@@ -14,14 +14,18 @@ type ShengSuanYunProps = {
 	apiConfiguration: ProviderSettings
 	setApiConfigurationField: (field: keyof ProviderSettings, value: ProviderSettings[keyof ProviderSettings]) => void
 	routerModels?: RouterModels
+	organizationAllowList: OrganizationAllowList
 	refetchRouterModels: () => void
+	modelValidationError?: string
 }
 
 export const ShengSuanYun = ({
 	apiConfiguration,
 	setApiConfigurationField,
 	routerModels,
+	organizationAllowList,
 	refetchRouterModels,
+	modelValidationError,
 }: ShengSuanYunProps) => {
 	const { t } = useAppTranslation()
 
@@ -84,6 +88,8 @@ export const ShengSuanYun = ({
 				modelIdKey="shengSuanYunModelId"
 				serviceName="ShengSuanYun"
 				serviceUrl="https://router.shengsuanyun.com"
+				organizationAllowList={organizationAllowList}
+				errorMessage={modelValidationError}
 			/>
 		</>
 	)

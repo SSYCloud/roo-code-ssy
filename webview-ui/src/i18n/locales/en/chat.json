@@ -1,5 +1,5 @@
 {
-	"greeting": "Welcome to Roo Code Chinese SSY",
+	"greeting": "Welcome to Roo Code!",
 	"task": {
 		"title": "Task",
 		"seeMore": "See more",
@@ -11,7 +11,12 @@
 		"contextWindow": "Context Length:",
 		"closeAndStart": "Close task and start a new one",
 		"export": "Export task history",
-		"delete": "Delete Task (Shift + Click to skip confirmation)"
+		"share": "Share task",
+		"delete": "Delete Task (Shift + Click to skip confirmation)",
+		"shareWithOrganization": "Share with Organization",
+		"shareWithOrganizationDescription": "Only members of your organization can access",
+		"sharePublicly": "Share Publicly",
+		"sharePubliclyDescription": "Anyone with the link can access"
 	},
 	"unpin": "Unpin",
 	"pin": "Pin",
@@ -45,6 +50,14 @@
 		"title": "Approve",
 		"tooltip": "Approve this action"
 	},
+	"read-batch": {
+		"approve": {
+			"title": "Approve All"
+		},
+		"deny": {
+			"title": "Deny All"
+		}
+	},
 	"runCommand": {
 		"title": "Run Command",
 		"tooltip": "Execute this command"
@@ -74,7 +87,7 @@
 	"onboarding": "Your task list in this workspace is empty.",
 	"rooTips": {
 		"boomerangTasks": {
-			"title": "Boomerang Tasks",
+			"title": "Task Orchestration",
 			"description": "Split tasks into smaller, manageable parts"
 		},
 		"stickyModels": {
@@ -133,33 +146,46 @@
 	"contextCondense": {
 		"title": "Context Condensed",
 		"condensing": "Condensing context...",
+		"errorHeader": "Failed to condense context",
 		"tokens": "tokens"
 	},
 	"instructions": {
 		"wantsToFetch": "Roo Code Chinese SSY wants to fetch detailed instructions to assist with the current task"
 	},
 	"fileOperations": {
-		"wantsToRead": "Roo Code Chinese SSY wants to read this file:",
-		"wantsToReadOutsideWorkspace": "Roo Code Chinese SSY wants to read this file outside of the workspace:",
-		"didRead": "Roo Code Chinese SSY read this file:",
-		"wantsToEdit": "Roo Code Chinese SSY wants to edit this file:",
-		"wantsToEditOutsideWorkspace": "Roo Code Chinese SSY wants to edit this file outside of the workspace:",
-		"wantsToCreate": "Roo Code Chinese SSY wants to create a new file:",
-		"wantsToSearchReplace": "Roo Code Chinese SSY wants to search and replace in this file:",
-		"didSearchReplace": "Roo Code Chinese SSY performed search and replace on this file:",
-		"wantsToInsert": "Roo Code Chinese SSY wants to insert content into this file:",
-		"wantsToInsertWithLineNumber": "Roo Code Chinese SSY wants to insert content into this file at line {{lineNumber}}:",
-		"wantsToInsertAtEnd": "Roo Code Chinese SSY wants to append content to the end of this file:"
+		"wantsToRead": "Roo wants to read this file:",
+		"wantsToReadMultiple": "Roo wants to read multiple files:",
+		"wantsToReadAndXMore": "Roo wants to read this file and {{count}} more:",
+		"wantsToReadOutsideWorkspace": "Roo wants to read this file outside of the workspace:",
+		"didRead": "Roo read this file:",
+		"wantsToEdit": "Roo wants to edit this file:",
+		"wantsToEditOutsideWorkspace": "Roo wants to edit this file outside of the workspace:",
+		"wantsToEditProtected": "Roo wants to edit a protected configuration file:",
+		"wantsToApplyBatchChanges": "Roo wants to apply changes to multiple files:",
+		"wantsToCreate": "Roo wants to create a new file:",
+		"wantsToSearchReplace": "Roo wants to search and replace in this file:",
+		"didSearchReplace": "Roo performed search and replace on this file:",
+		"wantsToInsert": "Roo wants to insert content into this file:",
+		"wantsToInsertWithLineNumber": "Roo wants to insert content into this file at line {{lineNumber}}:",
+		"wantsToInsertAtEnd": "Roo wants to append content to the end of this file:"
 	},
 	"directoryOperations": {
-		"wantsToViewTopLevel": "Roo Code Chinese SSY wants to view the top level files in this directory:",
-		"didViewTopLevel": "Roo Code Chinese SSY viewed the top level files in this directory:",
-		"wantsToViewRecursive": "Roo Code Chinese SSY wants to recursively view all files in this directory:",
-		"didViewRecursive": "Roo Code Chinese SSY recursively viewed all files in this directory:",
-		"wantsToViewDefinitions": "Roo Code Chinese SSY wants to view source code definition names used in this directory:",
-		"didViewDefinitions": "Roo Code Chinese SSY viewed source code definition names used in this directory:",
-		"wantsToSearch": "Roo Code Chinese SSY wants to search this directory for <code>{{regex}}</code>:",
-		"didSearch": "Roo Code Chinese SSY searched this directory for <code>{{regex}}</code>:"
+		"wantsToViewTopLevel": "Roo wants to view the top level files in this directory:",
+		"didViewTopLevel": "Roo viewed the top level files in this directory:",
+		"wantsToViewTopLevelOutsideWorkspace": "Roo wants to view the top level files in this directory (outside workspace):",
+		"didViewTopLevelOutsideWorkspace": "Roo viewed the top level files in this directory (outside workspace):",
+		"wantsToViewRecursive": "Roo wants to recursively view all files in this directory:",
+		"didViewRecursive": "Roo recursively viewed all files in this directory:",
+		"wantsToViewRecursiveOutsideWorkspace": "Roo wants to recursively view all files in this directory (outside workspace):",
+		"didViewRecursiveOutsideWorkspace": "Roo recursively viewed all files in this directory (outside workspace):",
+		"wantsToViewDefinitions": "Roo wants to view source code definition names used in this directory:",
+		"didViewDefinitions": "Roo viewed source code definition names used in this directory:",
+		"wantsToViewDefinitionsOutsideWorkspace": "Roo wants to view source code definition names used in this directory (outside workspace):",
+		"didViewDefinitionsOutsideWorkspace": "Roo viewed source code definition names used in this directory (outside workspace):",
+		"wantsToSearch": "Roo wants to search this directory for <code>{{regex}}</code>:",
+		"didSearch": "Roo searched this directory for <code>{{regex}}</code>:",
+		"wantsToSearchOutsideWorkspace": "Roo wants to search this directory (outside workspace) for <code>{{regex}}</code>:",
+		"didSearchOutsideWorkspace": "Roo searched this directory (outside workspace) for <code>{{regex}}</code>:"
 	},
 	"codebaseSearch": {
 		"wantsToSearch": "Roo wants to search the codebase for <code>{{query}}</code>:",
@@ -206,12 +232,12 @@
 		"description": "Auto-approve allows Roo Code Chinese SSY to perform actions without asking for permission. Only enable for actions you fully trust. More detailed configuration available in <settingsLink>Settings</settingsLink>."
 	},
 	"announcement": {
-		"title": "🎉 Roo Code Chinese SSY {{version}} Released",
-		"description": "Roo Code Chinese SSY {{version}} brings new features and improvements based on your feedback.",
+		"title": "🎉 Roo Code {{version}} Released",
+		"description": "Roo Code {{version}} brings major new features and improvements based on your feedback.",
 		"whatsNew": "What's New",
-		"feature1": "<bold>Gemini 2.5 Flash Preview Models</bold>: Access the latest Gemini Flash models for faster and more efficient responses",
-		"feature2": "<bold>Intelligent Context Condensing</bold>: New button in task header lets you intelligently condense content with visual feedback",
-		"feature3": "<bold>YAML Support for Mode Definitions</bold>: Create and customize modes more easily with YAML support",
+		"feature1": "<bold>Roo Marketplace Launch</bold>: The marketplace is now live! Discover and install modes and MCPs easier than ever before.",
+		"feature2": "<bold>Gemini 2.5 Models</bold>: Added support for new Gemini 2.5 Pro, Flash, and Flash Lite models.",
+		"feature3": "<bold>Excel File Support & More</bold>: Added Excel (.xlsx) file support and numerous bug fixes and improvements!",
 		"hideButton": "Hide announcement",
 		"detailsDiscussLinks": "Get more details and discuss in <discordLink>Discord</discordLink> and <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -254,6 +280,7 @@
 		}
 	},
 	"systemPromptWarning": "WARNING: Custom system prompt override active. This can severely break functionality and cause unpredictable behavior.",
+	"profileViolationWarning": "The current profile violates your organization's settings",
 	"shellIntegration": {
 		"title": "Command Execution Warning",
 		"description": "Your command is being executed without VSCode terminal shell integration. To suppress this warning you can disable shell integration in the <strong>Terminal</strong> section of the <settingsLink>Roo Code Chinese SSY settings</settingsLink> or troubleshoot VSCode terminal integration using the link below.",
@@ -265,5 +292,12 @@
 			"description": "Roo has reached the auto-approved limit of {{count}} API request(s). Would you like to reset the count and proceed with the task?",
 			"button": "Reset and Continue"
 		}
+	},
+	"indexingStatus": {
+		"ready": "Index ready",
+		"indexing": "Indexing {{percentage}}%",
+		"indexed": "Indexed",
+		"error": "Index error",
+		"status": "Index status"
 	}
 }

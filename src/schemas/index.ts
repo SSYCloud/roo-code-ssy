@@ -772,7 +772,7 @@ const providerSettingsRecord: ProviderSettingsRecord = {
 	litellmBaseUrl: undefined,
 	litellmApiKey: undefined,
 	litellmModelId: undefined,
-	// Sheng Suan Yun
+	// ShengSuanYun
 	shengSuanYunApiKey: undefined,
 	shengSuanYunModelId: undefined,
 }

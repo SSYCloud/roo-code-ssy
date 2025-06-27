@@ -11,7 +11,12 @@
 		"closeAndStart": "Cerrar tarea e iniciar una nueva",
 		"export": "Exportar historial de tareas",
 		"delete": "Eliminar tarea (Shift + Clic para omitir confirmación)",
-		"condenseContext": "Condensar contexto de forma inteligente"
+		"condenseContext": "Condensar contexto de forma inteligente",
+		"share": "Compartir tarea",
+		"shareWithOrganization": "Compartir con organización",
+		"shareWithOrganizationDescription": "Solo los miembros de tu organización pueden acceder",
+		"sharePublicly": "Compartir públicamente",
+		"sharePubliclyDescription": "Cualquiera con el enlace puede acceder"
 	},
 	"unpin": "Desfijar",
 	"pin": "Fijar",
@@ -74,7 +79,7 @@
 	"onboarding": "<strong>Tu lista de tareas en este espacio de trabajo está vacía.</strong> Comienza escribiendo una tarea abajo. ¿No estás seguro cómo empezar? Lee más sobre lo que Roo puede hacer por ti en <DocsLink>la documentación</DocsLink>.",
 	"rooTips": {
 		"boomerangTasks": {
-			"title": "Tareas Boomerang",
+			"title": "Orquestación de Tareas",
 			"description": "Divide las tareas en partes más pequeñas y manejables."
 		},
 		"stickyModels": {
@@ -144,12 +149,16 @@
 		"didRead": "Roo leyó este archivo:",
 		"wantsToEdit": "Roo quiere editar este archivo:",
 		"wantsToEditOutsideWorkspace": "Roo quiere editar este archivo fuera del espacio de trabajo:",
+		"wantsToEditProtected": "Roo quiere editar un archivo de configuración protegido:",
 		"wantsToCreate": "Roo quiere crear un nuevo archivo:",
 		"wantsToSearchReplace": "Roo quiere realizar búsqueda y reemplazo en este archivo:",
 		"didSearchReplace": "Roo realizó búsqueda y reemplazo en este archivo:",
 		"wantsToInsert": "Roo quiere insertar contenido en este archivo:",
 		"wantsToInsertWithLineNumber": "Roo quiere insertar contenido en este archivo en la línea {{lineNumber}}:",
-		"wantsToInsertAtEnd": "Roo quiere añadir contenido al final de este archivo:"
+		"wantsToInsertAtEnd": "Roo quiere añadir contenido al final de este archivo:",
+		"wantsToReadAndXMore": "Roo quiere leer este archivo y {{count}} más:",
+		"wantsToReadMultiple": "Roo quiere leer varios archivos:",
+		"wantsToApplyBatchChanges": "Roo quiere aplicar cambios a múltiples archivos:"
 	},
 	"directoryOperations": {
 		"wantsToViewTopLevel": "Roo quiere ver los archivos de nivel superior en este directorio:",
@@ -159,7 +168,15 @@
 		"wantsToViewDefinitions": "Roo quiere ver nombres de definiciones de código fuente utilizados en este directorio:",
 		"didViewDefinitions": "Roo vio nombres de definiciones de código fuente utilizados en este directorio:",
 		"wantsToSearch": "Roo quiere buscar en este directorio <code>{{regex}}</code>:",
-		"didSearch": "Roo buscó en este directorio <code>{{regex}}</code>:"
+		"didSearch": "Roo buscó en este directorio <code>{{regex}}</code>:",
+		"wantsToSearchOutsideWorkspace": "Roo quiere buscar en este directorio (fuera del espacio de trabajo) <code>{{regex}}</code>:",
+		"didSearchOutsideWorkspace": "Roo buscó en este directorio (fuera del espacio de trabajo) <code>{{regex}}</code>:",
+		"wantsToViewTopLevelOutsideWorkspace": "Roo quiere ver los archivos de nivel superior en este directorio (fuera del espacio de trabajo):",
+		"didViewTopLevelOutsideWorkspace": "Roo vio los archivos de nivel superior en este directorio (fuera del espacio de trabajo):",
+		"wantsToViewRecursiveOutsideWorkspace": "Roo quiere ver recursivamente todos los archivos en este directorio (fuera del espacio de trabajo):",
+		"didViewRecursiveOutsideWorkspace": "Roo vio recursivamente todos los archivos en este directorio (fuera del espacio de trabajo):",
+		"wantsToViewDefinitionsOutsideWorkspace": "Roo quiere ver nombres de definiciones de código fuente utilizados en este directorio (fuera del espacio de trabajo):",
+		"didViewDefinitionsOutsideWorkspace": "Roo vio nombres de definiciones de código fuente utilizados en este directorio (fuera del espacio de trabajo):"
 	},
 	"commandOutput": "Salida del comando",
 	"response": "Respuesta",
@@ -202,18 +219,19 @@
 	"contextCondense": {
 		"title": "Contexto condensado",
 		"condensing": "Condensando contexto...",
+		"errorHeader": "Error al condensar el contexto",
 		"tokens": "tokens"
 	},
 	"followUpSuggest": {
 		"copyToInput": "Copiar a la entrada (o Shift + clic)"
 	},
 	"announcement": {
-		"title": "🎉 Roo Code Chinese SSY {{version}} publicado",
-		"description": "Roo Code Chinese SSY {{version}} trae nuevas funcionalidades y mejoras basadas en tus comentarios.",
+		"title": "🎉 Roo Code {{version}} publicado",
+		"description": "Roo Code {{version}} trae importantes nuevas funcionalidades y mejoras basadas en tus comentarios.",
 		"whatsNew": "Novedades",
-		"feature1": "<bold>Modelos de vista previa Gemini 2.5 Flash</bold>: Accede a los últimos modelos Gemini Flash para respuestas más rápidas y eficientes",
-		"feature2": "<bold>Condensación inteligente de contexto</bold>: Nuevo botón en la cabecera de tareas que permite condensar contenido de forma inteligente con retroalimentación visual",
-		"feature3": "<bold>Soporte YAML para definiciones de modo</bold>: Crea y personaliza modos más fácilmente con soporte YAML",
+		"feature1": "<bold>Lanzamiento del Marketplace de Roo</bold>: ¡El marketplace ya está disponible! Descubre e instala modos y MCPs más fácil que nunca.",
+		"feature2": "<bold>Modelos Gemini 2.5</bold>: Se agregó soporte para los nuevos modelos Gemini 2.5 Pro, Flash y Flash Lite.",
+		"feature3": "<bold>Soporte de archivos Excel y más</bold>: ¡Se agregó soporte para archivos Excel (.xlsx) y numerosas correcciones de errores y mejoras!",
 		"hideButton": "Ocultar anuncio",
 		"detailsDiscussLinks": "Obtén más detalles y participa en <discordLink>Discord</discordLink> y <redditLink>Reddit</redditLink> 🚀"
 	},
@@ -249,6 +267,7 @@
 		}
 	},
 	"systemPromptWarning": "ADVERTENCIA: Anulación de instrucciones del sistema personalizada activa. Esto puede romper gravemente la funcionalidad y causar un comportamiento impredecible.",
+	"profileViolationWarning": "El perfil actual infringe la configuración de tu organización",
 	"shellIntegration": {
 		"title": "Advertencia de ejecución de comandos",
 		"description": "Tu comando se está ejecutando sin la integración de shell de terminal de VSCode. Para suprimir esta advertencia, puedes desactivar la integración de shell en la sección <strong>Terminal</strong> de la <settingsLink>configuración de Roo Code Chinese SSY</settingsLink> o solucionar problemas de integración de terminal de VSCode usando el enlace de abajo.",
@@ -265,5 +284,20 @@
 		"wantsToSearch": "Roo quiere buscar en la base de código <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo quiere buscar en la base de código <code>{{query}}</code> en <code>{{path}}</code>:",
 		"didSearch": "Se encontraron {{count}} resultado(s) para <code>{{query}}</code>:"
+	},
+	"read-batch": {
+		"approve": {
+			"title": "Aprobar todo"
+		},
+		"deny": {
+			"title": "Denegar todo"
+		}
+	},
+	"indexingStatus": {
+		"ready": "Índice listo",
+		"indexing": "Indexando {{percentage}}%",
+		"indexed": "Indexado",
+		"error": "Error de índice",
+		"status": "Estado del índice"
 	}
 }

@@ -2,12 +2,14 @@ import { Anthropic } from "@anthropic-ai/sdk"
 import OpenAI from "openai"
 
 import {
-	ApiHandlerOptions,
-	ModelRecord,
 	openRouterDefaultModelId,
 	openRouterDefaultModelInfo,
+	OPENROUTER_DEFAULT_PROVIDER_NAME,
 	OPEN_ROUTER_PROMPT_CACHING_MODELS,
-} from "../../shared/api"
+	DEEP_SEEK_DEFAULT_TEMPERATURE,
+} from "@roo-code/types"
+
+import type { ApiHandlerOptions, ModelRecord } from "../../shared/api"
 
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"
@@ -20,11 +22,9 @@ import { getModelParams } from "../transform/model-params"
 import { getModels } from "./fetchers/modelCache"
 import { getModelEndpoints } from "./fetchers/modelEndpointCache"
 
-import { DEFAULT_HEADERS, DEEP_SEEK_DEFAULT_TEMPERATURE } from "./constants"
+import { DEFAULT_HEADERS } from "./constants"
 import { BaseProvider } from "./base-provider"
 import type { SingleCompletionHandler } from "../index"
-
-const OPENROUTER_DEFAULT_PROVIDER_NAME = "[default]"
 
 // Add custom interface for OpenRouter params.
 type OpenRouterChatCompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {
@@ -48,7 +48,12 @@ interface CompletionUsage {
 	}
 	total_tokens?: number
 	cost?: number
+	is_byok?: boolean
 }
+
+// with bring your own key, OpenRouter charges 5% of what it normally would: https://openrouter.ai/docs/use-cases/byok
+// so we multiply the cost reported by OpenRouter to get an estimate of what the request actually cost
+const BYOK_COST_MULTIPLIER = 20
 
 export class OpenRouterHandler extends BaseProvider implements SingleCompletionHandler {
 	protected options: ApiHandlerOptions
@@ -73,6 +78,18 @@ export class OpenRouterHandler extends BaseProvider implements SingleCompletionH
 		const model = await this.fetchModel()
 
 		let { id: modelId, maxTokens, temperature, topP, reasoning } = model
+
+		// OpenRouter sends reasoning tokens by default for Gemini 2.5 Pro
+		// Preview even if you don't request them. This is not the default for
+		// other providers (including Gemini), so we need to explicitly disable
+		// i We should generalize this using the logic in `getModelParams`, but
+		// this is easier for now.
+		if (
+			(modelId === "google/gemini-2.5-pro-preview" || modelId === "google/gemini-2.5-pro") &&
+			typeof reasoning === "undefined"
+		) {
+			reasoning = { exclude: true }
+		}
 
 		// Convert Anthropic messages to OpenAI format.
 		let openAiMessages: OpenAI.Chat.ChatCompletionMessageParam[] = [
@@ -155,7 +172,7 @@ export class OpenRouterHandler extends BaseProvider implements SingleCompletionH
 				// and how to best support it.
 				// cacheReadTokens: lastUsage.prompt_tokens_details?.cached_tokens,
 				reasoningTokens: lastUsage.completion_tokens_details?.reasoning_tokens,
-				totalCost: lastUsage.cost || 0,
+				totalCost: (lastUsage.is_byok ? BYOK_COST_MULTIPLIER : 1) * (lastUsage.cost || 0),
 			}
 		}
 	}

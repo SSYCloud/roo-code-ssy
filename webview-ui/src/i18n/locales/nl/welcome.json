@@ -1,9 +1,8 @@
 {
-	"greeting": "Hoi, ik ben Roo!",
-	"introduction": "<strong>Roo Code Chinese SSY is de toonaangevende autonome programmeeragent.</strong> Maak je klaar om te ontwerpen, coderen, debuggen en je productiviteit te verhogen als nooit tevoren. Om door te gaan, heeft Roo Code Chinese SSY een API-sleutel nodig.",
+	"greeting": "Welkom bij Roo Code!",
+	"introduction": "Met een reeks ingebouwde en uitbreidbare Modi laat Roo Code je plannen, ontwerpen, coderen, debuggen en je productiviteit verhogen als nooit tevoren.",
 	"notice": "Om te beginnen heeft deze extensie een API-provider nodig.",
 	"start": "Aan de slag!",
-	"chooseProvider": "Kies een API-provider om te beginnen:",
 	"routers": {
 		"requesty": {
 			"description": "Jouw geoptimaliseerde LLM-router",
@@ -17,8 +16,9 @@
 			"description": "Een uniforme interface voor LLM's"
 		}
 	},
-	"startRouter": "Snelle setup via een router",
-	"startCustom": "Gebruik je eigen API-sleutel",
+	"chooseProvider": "Om zijn magie te doen, heeft Roo een API-sleutel nodig.",
+	"startRouter": "We raden aan om een LLM-router te gebruiken:",
+	"startCustom": "Of je kunt je eigen API-sleutel gebruiken:",
 	"telemetry": {
 		"title": "Help Roo Code Chinese SSY verbeteren",
 		"anonymousTelemetry": "Stuur anonieme fout- en gebruiksgegevens om ons te helpen bugs op te lossen en de extensie te verbeteren. Er worden nooit code, prompts of persoonlijke gegevens verzonden.",
@@ -27,6 +27,5 @@
 		"allow": "Toestaan",
 		"deny": "Weigeren"
 	},
-	"or": "of",
 	"importSettings": "Instellingen importeren"
 }

@@ -14,6 +14,9 @@ import { getUnboundModels } from "./unbound"
 import { getShengSuanYunModels } from "./shengsuanyun"
 import { getLiteLLMModels } from "./litellm"
 import { GetModelsOptions } from "../../../shared/api"
+import { getOllamaModels } from "./ollama"
+import { getLMStudioModels } from "./lmstudio"
+
 const memoryCache = new NodeCache({ stdTTL: 5 * 60, checkperiod: 5 * 60 })
 
 async function writeModels(router: RouterName, data: ModelRecord) {
@@ -68,8 +71,13 @@ export const getModels = async (options: GetModelsOptions): Promise<ModelRecord>
 				// Type safety ensures apiKey and baseUrl are always provided for litellm
 				models = await getLiteLLMModels(options.apiKey, options.baseUrl)
 				break
+			case "ollama":
+				models = await getOllamaModels(options.baseUrl)
+				break
+			case "lmstudio":
+				models = await getLMStudioModels(options.baseUrl)
+				break
 			case "shengsuanyun":
-				// Type safety ensures apiKey and baseUrl are always provided for litellm
 				models = await getShengSuanYunModels()
 				break
 			default: {

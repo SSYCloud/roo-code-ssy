@@ -1,6 +1,6 @@
 import { Anthropic } from "@anthropic-ai/sdk"
 
-import { ClineAsk, ToolProgressStatus, ToolGroup, ToolName } from "../schemas"
+import type { ClineAsk, ToolProgressStatus, ToolGroup, ToolName } from "@roo-code/types"
 
 export type ToolResponse = string | Array<Anthropic.TextBlockParam | Anthropic.ImageBlockParam>
 
@@ -8,6 +8,7 @@ export type AskApproval = (
 	type: ClineAsk,
 	partialMessage?: string,
 	progressStatus?: ToolProgressStatus,
+	forceApproval?: boolean,
 ) => Promise<boolean>
 
 export type HandleError = (action: string, error: Error) => Promise<void>
@@ -45,11 +46,8 @@ export const toolParamNames = [
 	"question",
 	"result",
 	"diff",
-	"start_line",
-	"end_line",
 	"mode_slug",
 	"reason",
-	"operations",
 	"line",
 	"mode",
 	"message",
@@ -61,9 +59,11 @@ export const toolParamNames = [
 	"replace",
 	"use_regex",
 	"ignore_case",
+	"args",
 	"start_line",
 	"end_line",
 	"query",
+	"args",
 ] as const
 
 export type ToolParamName = (typeof toolParamNames)[number]
@@ -84,7 +84,7 @@ export interface ExecuteCommandToolUse extends ToolUse {
 
 export interface ReadFileToolUse extends ToolUse {
 	name: "read_file"
-	params: Partial<Pick<Record<ToolParamName, string>, "path" | "start_line" | "end_line">>
+	params: Partial<Pick<Record<ToolParamName, string>, "args" | "path" | "start_line" | "end_line">>
 }
 
 export interface FetchInstructionsToolUse extends ToolUse {
@@ -144,7 +144,7 @@ export interface AskFollowupQuestionToolUse extends ToolUse {
 
 export interface AttemptCompletionToolUse extends ToolUse {
 	name: "attempt_completion"
-	params: Partial<Pick<Record<ToolParamName, string>, "result" | "command">>
+	params: Partial<Pick<Record<ToolParamName, string>, "result">>
 }
 
 export interface SwitchModeToolUse extends ToolUse {
@@ -189,8 +189,6 @@ export const TOOL_DISPLAY_NAMES: Record<ToolName, string> = {
 	search_and_replace: "search and replace",
 	codebase_search: "codebase search",
 } as const
-
-export type { ToolGroup }
 
 // Define available tool groups.
 export const TOOL_GROUPS: Record<ToolGroup, ToolGroupConfig> = {
@@ -245,6 +243,11 @@ export type DiffResult =
 			failParts?: DiffResult[]
 	  } & ({ error: string } | { failParts: DiffResult[] }))
 
+export interface DiffItem {
+	content: string
+	startLine?: number
+}
+
 export interface DiffStrategy {
 	/**
 	 * Get the name of this diff strategy for analytics and debugging
@@ -262,12 +265,17 @@ export interface DiffStrategy {
 	/**
 	 * Apply a diff to the original content
 	 * @param originalContent The original file content
-	 * @param diffContent The diff content in the strategy's format
+	 * @param diffContent The diff content in the strategy's format (string for legacy, DiffItem[] for new)
 	 * @param startLine Optional line number where the search block starts. If not provided, searches the entire file.
 	 * @param endLine Optional line number where the search block ends. If not provided, searches the entire file.
 	 * @returns A DiffResult object containing either the successful result or error details
 	 */
-	applyDiff(originalContent: string, diffContent: string, startLine?: number, endLine?: number): Promise<DiffResult>
+	applyDiff(
+		originalContent: string,
+		diffContent: string | DiffItem[],
+		startLine?: number,
+		endLine?: number,
+	): Promise<DiffResult>
 
 	getProgressStatus?(toolUse: ToolUse, result?: any): ToolProgressStatus
 }

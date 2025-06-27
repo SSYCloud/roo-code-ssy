@@ -1,11 +1,16 @@
 import { useEffect, useRef, useState } from "react"
 import mermaid from "mermaid"
-import { useDebounceEffect } from "@src/utils/useDebounceEffect"
 import styled from "styled-components"
+import { useDebounceEffect } from "@src/utils/useDebounceEffect"
 import { vscode } from "@src/utils/vscode"
 import { useAppTranslation } from "@src/i18n/TranslationContext"
 import { useCopyToClipboard } from "@src/utils/clipboard"
 import CodeBlock from "./CodeBlock"
+import { MermaidButton } from "@/components/common/MermaidButton"
+
+// Removed previous attempts at static imports for individual diagram types
+// as the paths were incorrect for Mermaid v11.4.1 and caused errors.
+// The primary strategy will now rely on Vite's bundling configuration.
 
 const MERMAID_THEME = {
 	background: "#1e1e1e", // VS Code dark theme background
@@ -209,7 +214,9 @@ export default function MermaidBlock({ code }: MermaidBlockProps) {
 					)}
 				</div>
 			) : (
-				<SvgContainer onClick={handleClick} ref={containerRef} $isLoading={isLoading} />
+				<MermaidButton containerRef={containerRef} code={code} isLoading={isLoading} svgToPng={svgToPng}>
+					<SvgContainer onClick={handleClick} ref={containerRef} $isLoading={isLoading}></SvgContainer>
+				</MermaidButton>
 			)}
 		</MermaidBlockContainer>
 	)
@@ -239,10 +246,16 @@ async function svgToPng(svgEl: SVGElement): Promise<string> {
 
 	const serializer = new XMLSerializer()
 	const svgString = serializer.serializeToString(svgClone)
-	const svgDataUrl = "data:image/svg+xml;base64," + btoa(decodeURIComponent(encodeURIComponent(svgString)))
+
+	// Create a data URL directly
+	// First, ensure the SVG string is properly encoded
+	const encodedSvg = encodeURIComponent(svgString).replace(/'/g, "%27").replace(/"/g, "%22")
+
+	const svgDataUrl = `data:image/svg+xml;charset=utf-8,${encodedSvg}`
 
 	return new Promise((resolve, reject) => {
 		const img = new Image()
+
 		img.onload = () => {
 			const canvas = document.createElement("canvas")
 			canvas.width = editorWidth
@@ -306,4 +319,12 @@ const SvgContainer = styled.div<SvgContainerProps>`
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
+	max-height: 400px;
+
+	/* Ensure the SVG scales within the container */
+	& > svg {
+		display: block; /* Ensure block layout */
+		width: 100%;
+		max-height: 100%; /* Respect container's max-height */
+	}
 `

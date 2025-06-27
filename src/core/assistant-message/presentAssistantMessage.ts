@@ -1,19 +1,17 @@
 import cloneDeep from "clone-deep"
 import { serializeError } from "serialize-error"
 
-import type { ToolName } from "../../schemas"
+import type { ToolName, ClineAsk, ToolProgressStatus } from "@roo-code/types"
+import { TelemetryService } from "@roo-code/telemetry"
 
 import { defaultModeSlug, getModeBySlug } from "../../shared/modes"
 import type { ToolParamName, ToolResponse } from "../../shared/tools"
-import type { ClineAsk, ToolProgressStatus } from "../../shared/ExtensionMessage"
-
-import { telemetryService } from "../../services/telemetry/TelemetryService"
 
 import { fetchInstructionsTool } from "../tools/fetchInstructionsTool"
 import { listFilesTool } from "../tools/listFilesTool"
-import { readFileTool } from "../tools/readFileTool"
+import { getReadFileToolDescription, readFileTool } from "../tools/readFileTool"
 import { writeToFileTool } from "../tools/writeToFileTool"
-import { applyDiffTool } from "../tools/applyDiffTool"
+import { applyDiffTool } from "../tools/multiApplyDiffTool"
 import { insertContentTool } from "../tools/insertContentTool"
 import { searchAndReplaceTool } from "../tools/searchAndReplaceTool"
 import { listCodeDefinitionNamesTool } from "../tools/listCodeDefinitionNamesTool"
@@ -33,6 +31,8 @@ import { formatResponse } from "../prompts/responses"
 import { validateToolUse } from "../tools/validateToolUse"
 import { Task } from "../task/Task"
 import { codebaseSearchTool } from "../tools/codebaseSearchTool"
+import { experiments, EXPERIMENT_IDS } from "../../shared/experiments"
+import { applyDiffToolLegacy } from "../tools/applyDiffTool"
 
 /**
  * Processes and presents assistant message content to the user interface.
@@ -53,7 +53,7 @@ import { codebaseSearchTool } from "../tools/codebaseSearchTool"
 
 export async function presentAssistantMessage(cline: Task) {
 	if (cline.abort) {
-		throw new Error(`[Cline#presentAssistantMessage] task ${cline.taskId}.${cline.instanceId} aborted`)
+		throw new Error(`[Task#presentAssistantMessage] task ${cline.taskId}.${cline.instanceId} aborted`)
 	}
 
 	if (cline.presentAssistantMessageLocked) {
@@ -155,13 +155,30 @@ export async function presentAssistantMessage(cline: Task) {
 					case "execute_command":
 						return `[${block.name} for '${block.params.command}']`
 					case "read_file":
-						return `[${block.name} for '${block.params.path}']`
+						return getReadFileToolDescription(block.name, block.params)
 					case "fetch_instructions":
 						return `[${block.name} for '${block.params.task}']`
 					case "write_to_file":
 						return `[${block.name} for '${block.params.path}']`
 					case "apply_diff":
-						return `[${block.name} for '${block.params.path}']`
+						// Handle both legacy format and new multi-file format
+						if (block.params.path) {
+							return `[${block.name} for '${block.params.path}']`
+						} else if (block.params.args) {
+							// Try to extract first file path from args for display
+							const match = block.params.args.match(/<file>.*?<path>([^<]+)<\/path>/s)
+							if (match) {
+								const firstPath = match[1]
+								// Check if there are multiple files
+								const fileCount = (block.params.args.match(/<file>/g) || []).length
+								if (fileCount > 1) {
+									return `[${block.name} for '${firstPath}' and ${fileCount - 1} more file${fileCount > 2 ? "s" : ""}]`
+								} else {
+									return `[${block.name} for '${firstPath}']`
+								}
+							}
+						}
+						return `[${block.name}]`
 					case "search_files":
 						return `[${block.name} for '${block.params.regex}'${
 							block.params.file_pattern ? ` in '${block.params.file_pattern}'` : ""
@@ -244,8 +261,15 @@ export async function presentAssistantMessage(cline: Task) {
 				type: ClineAsk,
 				partialMessage?: string,
 				progressStatus?: ToolProgressStatus,
+				isProtected?: boolean,
 			) => {
-				const { response, text, images } = await cline.ask(type, partialMessage, false, progressStatus)
+				const { response, text, images } = await cline.ask(
+					type,
+					partialMessage,
+					false,
+					progressStatus,
+					isProtected || false,
+				)
 
 				if (response !== "yesButtonClicked") {
 					// Handle both messageResponse and noButtonClicked with text.
@@ -321,7 +345,7 @@ export async function presentAssistantMessage(cline: Task) {
 
 			if (!block.partial) {
 				cline.recordToolUsage(block.name)
-				telemetryService.captureToolUsage(cline.taskId, block.name)
+				TelemetryService.instance.captureToolUsage(cline.taskId, block.name)
 			}
 
 			// Validate tool use before execution.
@@ -369,7 +393,7 @@ export async function presentAssistantMessage(cline: Task) {
 						await cline.say("user_feedback", text, images)
 
 						// Track tool repetition in telemetry.
-						telemetryService.captureConsecutiveMistakeError(cline.taskId)
+						TelemetryService.instance.captureConsecutiveMistakeError(cline.taskId)
 					}
 
 					// Return tool result message about the repetition
@@ -386,9 +410,33 @@ export async function presentAssistantMessage(cline: Task) {
 				case "write_to_file":
 					await writeToFileTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
 					break
-				case "apply_diff":
-					await applyDiffTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
+				case "apply_diff": {
+					// Get the provider and state to check experiment settings
+					const provider = cline.providerRef.deref()
+					let isMultiFileApplyDiffEnabled = false
+
+					if (provider) {
+						const state = await provider.getState()
+						isMultiFileApplyDiffEnabled = experiments.isEnabled(
+							state.experiments ?? {},
+							EXPERIMENT_IDS.MULTI_FILE_APPLY_DIFF,
+						)
+					}
+
+					if (isMultiFileApplyDiffEnabled) {
+						await applyDiffTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
+					} else {
+						await applyDiffToolLegacy(
+							cline,
+							block,
+							askApproval,
+							handleError,
+							pushToolResult,
+							removeClosingTag,
+						)
+					}
 					break
+				}
 				case "insert_content":
 					await insertContentTool(cline, block, askApproval, handleError, pushToolResult, removeClosingTag)
 					break

@@ -1,13 +1,15 @@
 import * as assert from "assert"
 
-import type { RooCodeAPI, ClineMessage } from "@roo-code/types"
+import type { ClineMessage } from "@roo-code/types"
 
 import { waitUntilCompleted } from "./utils"
+import { setDefaultSuiteTimeout } from "./test-utils"
 
-suite("Roo Code Chinese SSY Task", () => {
+suite("Roo Code Task", function () {
+	setDefaultSuiteTimeout(this)
+
 	test("Should handle prompt and response correctly", async () => {
-		// @ts-expect-error - Expose the API to the tests.
-		const api = globalThis.api as RooCodeAPI
+		const api = globalThis.api
 
 		const messages: ClineMessage[] = []
 

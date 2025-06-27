@@ -11,7 +11,12 @@
 		"closeAndStart": "Taak sluiten en een nieuwe starten",
 		"export": "Taakgeschiedenis exporteren",
 		"delete": "Taak verwijderen (Shift + Klik om bevestiging over te slaan)",
-		"condenseContext": "Context intelligent samenvatten"
+		"condenseContext": "Context intelligent samenvatten",
+		"share": "Taak delen",
+		"shareWithOrganization": "Delen met organisatie",
+		"shareWithOrganizationDescription": "Alleen leden van je organisatie kunnen toegang krijgen",
+		"sharePublicly": "Openbaar delen",
+		"sharePubliclyDescription": "Iedereen met de link kan toegang krijgen"
 	},
 	"unpin": "Losmaken",
 	"pin": "Vastmaken",
@@ -74,7 +79,7 @@
 	"onboarding": "Je takenlijst in deze werkruimte is leeg.",
 	"rooTips": {
 		"boomerangTasks": {
-			"title": "Boomerang-taken",
+			"title": "Taak Orchestratie",
 			"description": "Splits taken op in kleinere, beheersbare delen"
 		},
 		"stickyModels": {
@@ -139,12 +144,16 @@
 		"didRead": "Roo heeft dit bestand gelezen:",
 		"wantsToEdit": "Roo wil dit bestand bewerken:",
 		"wantsToEditOutsideWorkspace": "Roo wil dit bestand buiten de werkruimte bewerken:",
+		"wantsToEditProtected": "Roo wil een beveiligd configuratiebestand bewerken:",
 		"wantsToCreate": "Roo wil een nieuw bestand aanmaken:",
 		"wantsToSearchReplace": "Roo wil zoeken en vervangen in dit bestand:",
 		"didSearchReplace": "Roo heeft zoeken en vervangen uitgevoerd op dit bestand:",
 		"wantsToInsert": "Roo wil inhoud invoegen in dit bestand:",
 		"wantsToInsertWithLineNumber": "Roo wil inhoud invoegen in dit bestand op regel {{lineNumber}}:",
-		"wantsToInsertAtEnd": "Roo wil inhoud toevoegen aan het einde van dit bestand:"
+		"wantsToInsertAtEnd": "Roo wil inhoud toevoegen aan het einde van dit bestand:",
+		"wantsToReadAndXMore": "Roo wil dit bestand en nog {{count}} andere lezen:",
+		"wantsToReadMultiple": "Roo wil meerdere bestanden lezen:",
+		"wantsToApplyBatchChanges": "Roo wil wijzigingen toepassen op meerdere bestanden:"
 	},
 	"directoryOperations": {
 		"wantsToViewTopLevel": "Roo wil de bovenliggende bestanden in deze map bekijken:",
@@ -154,7 +163,15 @@
 		"wantsToViewDefinitions": "Roo wil broncode-definitienamen bekijken die in deze map worden gebruikt:",
 		"didViewDefinitions": "Roo heeft broncode-definitienamen bekeken die in deze map worden gebruikt:",
 		"wantsToSearch": "Roo wil deze map doorzoeken op <code>{{regex}}</code>:",
-		"didSearch": "Roo heeft deze map doorzocht op <code>{{regex}}</code>:"
+		"didSearch": "Roo heeft deze map doorzocht op <code>{{regex}}</code>:",
+		"wantsToSearchOutsideWorkspace": "Roo wil deze map (buiten werkruimte) doorzoeken op <code>{{regex}}</code>:",
+		"didSearchOutsideWorkspace": "Roo heeft deze map (buiten werkruimte) doorzocht op <code>{{regex}}</code>:",
+		"wantsToViewTopLevelOutsideWorkspace": "Roo wil de bovenliggende bestanden in deze map (buiten werkruimte) bekijken:",
+		"didViewTopLevelOutsideWorkspace": "Roo heeft de bovenliggende bestanden in deze map (buiten werkruimte) bekeken:",
+		"wantsToViewRecursiveOutsideWorkspace": "Roo wil alle bestanden in deze map (buiten werkruimte) recursief bekijken:",
+		"didViewRecursiveOutsideWorkspace": "Roo heeft alle bestanden in deze map (buiten werkruimte) recursief bekeken:",
+		"wantsToViewDefinitionsOutsideWorkspace": "Roo wil broncode-definitienamen bekijken die in deze map (buiten werkruimte) worden gebruikt:",
+		"didViewDefinitionsOutsideWorkspace": "Roo heeft broncode-definitienamen bekeken die in deze map (buiten werkruimte) worden gebruikt:"
 	},
 	"commandOutput": "Commando-uitvoer",
 	"response": "Antwoord",
@@ -196,14 +213,14 @@
 		"description": "Met automatisch goedkeuren kan  Roo Code Chinese SSY acties uitvoeren zonder om toestemming te vragen. Schakel dit alleen in voor acties die je volledig vertrouwt. Meer gedetailleerde configuratie beschikbaar in de <settingsLink>Instellingen</settingsLink>."
 	},
 	"announcement": {
-		"title": "🎉  Roo Code Chinese SSY {{version}} uitgebracht",
-		"description": " Roo Code Chinese SSY {{version}} brengt krachtige nieuwe functies en verbeteringen op basis van jouw feedback.",
-		"feature1": "<bold>Gemini 2.5 Flash preview-modellen</bold>: Toegang tot de nieuwste Gemini Flash-modellen voor snellere en efficiëntere antwoorden",
-		"feature2": "<bold>Intelligente contextcompressie</bold>: Nieuwe knop in de taakheader waarmee je content intelligent kunt comprimeren met visuele feedback",
-		"feature3": "<bold>YAML-ondersteuning voor modusdefinities</bold>: Maak en pas modi eenvoudiger aan met YAML-ondersteuning",
+		"title": "🎉 Roo Code {{version}} uitgebracht",
+		"description": "Roo Code {{version}} brengt krachtige nieuwe functies en verbeteringen op basis van jouw feedback.",
+		"whatsNew": "Wat is er nieuw",
+		"feature1": "<bold>Roo Marketplace Launch</bold> - De marketplace is nu live! Ontdek en installeer modi en MCP's makkelijker dan ooit tevoren.",
+		"feature2": "<bold>Gemini 2.5 Modellen</bold> - Ondersteuning toegevoegd voor nieuwe Gemini 2.5 Pro, Flash en Flash Lite modellen.",
+		"feature3": "<bold>Excel Bestandsondersteuning & Meer</bold> - Excel (.xlsx) bestandsondersteuning toegevoegd en talloze bugfixes en verbeteringen!",
 		"hideButton": "Aankondiging verbergen",
-		"detailsDiscussLinks": "Meer details en discussie in <discordLink>Discord</discordLink> en <redditLink>Reddit</redditLink> 🚀",
-		"whatsNew": "Wat is er nieuw"
+		"detailsDiscussLinks": "Meer details en discussie in <discordLink>Discord</discordLink> en <redditLink>Reddit</redditLink> 🚀"
 	},
 	"reasoning": {
 		"thinking": "Denkt na",
@@ -212,6 +229,7 @@
 	"contextCondense": {
 		"title": "Context samengevat",
 		"condensing": "Context aan het samenvatten...",
+		"errorHeader": "Context samenvatten mislukt",
 		"tokens": "tokens"
 	},
 	"followUpSuggest": {
@@ -249,6 +267,7 @@
 		}
 	},
 	"systemPromptWarning": "WAARSCHUWING: Aangepaste systeemprompt actief. Dit kan de functionaliteit ernstig verstoren en onvoorspelbaar gedrag veroorzaken.",
+	"profileViolationWarning": "Het huidige profiel schendt de instellingen van uw organisatie",
 	"shellIntegration": {
 		"title": "Waarschuwing commando-uitvoering",
 		"description": "Je commando wordt uitgevoerd zonder VSCode-terminal shell-integratie. Om deze waarschuwing te onderdrukken kun je shell-integratie uitschakelen in het gedeelte <strong>Terminal</strong> van de <settingsLink> Roo Code Chinese SSY Chinese SSY-instellingen</settingsLink> of de VSCode-terminalintegratie oplossen via de onderstaande link.",
@@ -265,5 +284,20 @@
 		"wantsToSearch": "Roo wil de codebase doorzoeken op <code>{{query}}</code>:",
 		"wantsToSearchWithPath": "Roo wil de codebase doorzoeken op <code>{{query}}</code> in <code>{{path}}</code>:",
 		"didSearch": "{{count}} resultaat/resultaten gevonden voor <code>{{query}}</code>:"
+	},
+	"read-batch": {
+		"approve": {
+			"title": "Alles goedkeuren"
+		},
+		"deny": {
+			"title": "Alles weigeren"
+		}
+	},
+	"indexingStatus": {
+		"ready": "Index gereed",
+		"indexing": "Indexeren {{percentage}}%",
+		"indexed": "Geïndexeerd",
+		"error": "Index fout",
+		"status": "Index status"
 	}
 }

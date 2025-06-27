@@ -1,9 +1,8 @@
 {
-	"greeting": "Hi, I'm Roo Code Chinese SSY!",
-	"introduction": "<strong>Roo Code Chinese SSY is the premiere autonomous coding agent.</strong> Get ready to architect, code, debug, and boost your productivity like you've never seen before. To continue, Roo Code Chinese SSY requires an API key.",
+	"greeting": "Welcome to Roo Code!",
+	"introduction": "With a range of built-in and extensible Modes, Roo Code lets you plan, architect, code, debug and boost your productivity like never before.",
 	"notice": "To get started, this extension needs an API provider.",
 	"start": "Let's go!",
-	"chooseProvider": "Choose an API provider to get started:",
 	"routers": {
 		"requesty": {
 			"description": "Your optimized LLM router",
@@ -17,8 +16,9 @@
 			"description": "A unified interface for LLMs"
 		}
 	},
-	"startRouter": "Express Setup Through a Router",
-	"startCustom": "Bring Your Own API Key",
+	"chooseProvider": "To do its magic, Roo needs an API key.",
+	"startRouter": "We recommend using an LLM Router:",
+	"startCustom": "Or you can bring your provider API key:",
 	"telemetry": {
 		"title": "Help Improve Roo Code Chinese SSY",
 		"anonymousTelemetry": "Send anonymous error and usage data to help us fix bugs and improve the extension. No code, prompts, or personal information is ever sent.",
@@ -27,6 +27,5 @@
 		"allow": "Allow",
 		"deny": "Deny"
 	},
-	"or": "or",
 	"importSettings": "Import Settings"
 }
