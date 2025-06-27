@@ -28,6 +28,7 @@ import {
 	ChutesHandler,
 	LiteLLMHandler,
 	ClaudeCodeHandler,
+	ShengSuanYunHandler,
 } from "./providers"
 
 export interface SingleCompletionHandler {

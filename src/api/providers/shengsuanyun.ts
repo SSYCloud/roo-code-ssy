@@ -2,12 +2,7 @@ import { Anthropic } from "@anthropic-ai/sdk"
 import { BetaThinkingConfigParam } from "@anthropic-ai/sdk/resources/beta"
 import OpenAI from "openai"
 
-import {
-	ApiHandlerOptions,
-	ModelRecord,
-	shengSuanYunDefaultModelId,
-	shengSuanYunDefaultModelInfo,
-} from "../../shared/api"
+import { type ModelInfo, shengSuanYunDefaultModelId, shengSuanYunDefaultModelInfo } from "@roo-code/types"
 
 import { convertToOpenAiMessages } from "../transform/openai-format"
 import { ApiStreamChunk } from "../transform/stream"
@@ -20,6 +15,7 @@ import { DEFAULT_HEADERS } from "./constants"
 import { BaseProvider } from "./base-provider"
 import { getModels } from "./fetchers/modelCache"
 import { console } from "node:inspector"
+import { ApiHandlerOptions, ModelRecord } from "../../shared/api"
 
 // Add custom interface for ShengSuanYun params (same as OpenRouter's params)
 type ShengSuanYunChatCompletionParams = OpenAI.Chat.ChatCompletionCreateParams & {

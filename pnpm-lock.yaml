@@ -701,6 +701,9 @@ importers:
       pkce-challenge:
         specifier: ^5.0.0
         version: 5.0.0
+      posthog-node:
+        specifier: ^4.0.1
+        version: 4.18.0
       pretty-bytes:
         specifier: ^7.0.0
         version: 7.0.0
@@ -7640,6 +7643,10 @@ packages:
         optional: true
       rrweb-snapshot:
         optional: true
+
+  posthog-node@4.18.0:
+    resolution: {integrity: sha512-XROs1h+DNatgKh/AlIlCtDxWzwrKdYDb2mOs58n4yN8BkGN9ewqeQwG5ApS4/IzwCb7HPttUkOVulkYatd2PIw==}
+    engines: {node: '>=15.0.0'}
 
   posthog-node@5.1.1:
     resolution: {integrity: sha512-6VISkNdxO24ehXiDA4dugyCSIV7lpGVaEu5kn/dlAj+SJ1lgcDru9PQ8p/+GSXsXVxohd1t7kHL2JKc9NoGb0w==}
@@ -17292,6 +17299,12 @@ snapshots:
       fflate: 0.4.8
       preact: 10.26.9
       web-vitals: 4.2.4
+
+  posthog-node@4.18.0:
+    dependencies:
+      axios: 1.10.0
+    transitivePeerDependencies:
+      - debug
 
   posthog-node@5.1.1: {}
 
