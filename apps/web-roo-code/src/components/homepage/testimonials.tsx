@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from "react"
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 import Image from "next/image"
 import { TestimonialsMobile } from "./testimonials-mobile"
 
@@ -59,7 +59,7 @@ export function Testimonials() {
 		},
 	}
 
-	const itemVariants = {
+	const itemVariants: Variants = {
 		hidden: {
 			opacity: 0,
 			y: 20,
@@ -74,7 +74,7 @@ export function Testimonials() {
 		},
 	}
 
-	const backgroundVariants = {
+	const backgroundVariants: Variants = {
 		hidden: {
 			opacity: 0,
 		},
