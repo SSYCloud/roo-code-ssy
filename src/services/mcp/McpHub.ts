@@ -1482,7 +1482,7 @@ export class McpHub {
 			timeout = 60 * 1000
 		}
 
-		return await connection.client.request(
+		const result = await connection.client.request(
 			{
 				method: "tools/call",
 				params: {
@@ -1495,6 +1495,13 @@ export class McpHub {
 				timeout,
 			},
 		)
+
+		// Transform the result to match McpToolCallResponse type
+		return {
+			_meta: result._meta,
+			content: result.content || [],
+			isError: result.isError,
+		} as McpToolCallResponse
 	}
 
 	/**

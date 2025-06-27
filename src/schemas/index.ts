@@ -4,7 +4,7 @@
 
 import { z } from "zod"
 
-import { Equals, Keys, AssertEqual } from "../utils/type-fu"
+import { Equals, Keys, AssertEqual } from "@roo-code/types"
 
 /**
  * Extension
